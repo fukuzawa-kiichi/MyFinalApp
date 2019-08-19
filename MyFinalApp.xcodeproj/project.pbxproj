@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		940F856658DE407483D7A6DD /* Pods_MyFinalApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0319C1DEBD7259A8B78B03F7 /* Pods_MyFinalApp.framework */; };
+		C11A02C3230AD1D600F626BD /* Post.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C11A02C2230AD1D600F626BD /* Post.storyboard */; };
+		C11A02C5230AD1EA00F626BD /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11A02C4230AD1EA00F626BD /* PostViewController.swift */; };
 		C1519CC9230A711000C18C5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1519CC8230A711000C18C5C /* AppDelegate.swift */; };
 		C1519CCB230A711000C18C5C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1519CCA230A711000C18C5C /* ViewController.swift */; };
 		C1519CCE230A711000C18C5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1519CCC230A711000C18C5C /* Main.storyboard */; };
@@ -22,6 +24,8 @@
 		0319C1DEBD7259A8B78B03F7 /* Pods_MyFinalApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyFinalApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		567C7F2CAFC5B8854D22218C /* Pods-MyFinalApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFinalApp.debug.xcconfig"; path = "Target Support Files/Pods-MyFinalApp/Pods-MyFinalApp.debug.xcconfig"; sourceTree = "<group>"; };
 		6A7CB480EC590C2E12ED96F2 /* Pods-MyFinalApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFinalApp.release.xcconfig"; path = "Target Support Files/Pods-MyFinalApp/Pods-MyFinalApp.release.xcconfig"; sourceTree = "<group>"; };
+		C11A02C2230AD1D600F626BD /* Post.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Post.storyboard; sourceTree = "<group>"; };
+		C11A02C4230AD1EA00F626BD /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		C1519CC5230A711000C18C5C /* MyFinalApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFinalApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1519CC8230A711000C18C5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1519CCA230A711000C18C5C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +59,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		C11A02C1230AD17600F626BD /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				C11A02C2230AD1D600F626BD /* Post.storyboard */,
+				C11A02C4230AD1EA00F626BD /* PostViewController.swift */,
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
 		C1519CBC230A711000C18C5C = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +92,7 @@
 				C1519CC8230A711000C18C5C /* AppDelegate.swift */,
 				C1DA7E06230A9637004E185E /* TimeLine */,
 				C155EFFE230A81540058B65D /* Login */,
+				C11A02C1230AD17600F626BD /* Post */,
 				C1519CCF230A711100C18C5C /* Assets.xcassets */,
 				C1519CD1230A711100C18C5C /* LaunchScreen.storyboard */,
 				C1519CD4230A711100C18C5C /* Info.plist */,
@@ -177,6 +191,7 @@
 				C1519CD0230A711100C18C5C /* Assets.xcassets in Resources */,
 				C155F004230A88400058B65D /* GoogleService-Info.plist in Resources */,
 				C155F000230A81820058B65D /* Login.storyboard in Resources */,
+				C11A02C3230AD1D600F626BD /* Post.storyboard in Resources */,
 				C1519CCE230A711000C18C5C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -230,6 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C11A02C5230AD1EA00F626BD /* PostViewController.swift in Sources */,
 				C155F002230A81B20058B65D /* LoginViewController.swift in Sources */,
 				C1519CCB230A711000C18C5C /* ViewController.swift in Sources */,
 				C1519CC9230A711000C18C5C /* AppDelegate.swift in Sources */,
