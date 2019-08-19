@@ -13,7 +13,9 @@
 		C1519CCE230A711000C18C5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1519CCC230A711000C18C5C /* Main.storyboard */; };
 		C1519CD0230A711100C18C5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1519CCF230A711100C18C5C /* Assets.xcassets */; };
 		C1519CD3230A711100C18C5C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1519CD1230A711100C18C5C /* LaunchScreen.storyboard */; };
-		C15EA76C230A7DDF008D7359 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C15EA76B230A7DDE008D7359 /* GoogleService-Info.plist */; };
+		C155F000230A81820058B65D /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C155EFFF230A81820058B65D /* Login.storyboard */; };
+		C155F002230A81B20058B65D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C155F001230A81B20058B65D /* LoginViewController.swift */; };
+		C155F004230A88400058B65D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C155F003230A88400058B65D /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +29,9 @@
 		C1519CCF230A711100C18C5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C1519CD2230A711100C18C5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C1519CD4230A711100C18C5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C15EA76B230A7DDE008D7359 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C155EFFF230A81820058B65D /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		C155F001230A81B20058B65D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C155F003230A88400058B65D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,14 +77,32 @@
 			isa = PBXGroup;
 			children = (
 				C1519CC8230A711000C18C5C /* AppDelegate.swift */,
-				C1519CCA230A711000C18C5C /* ViewController.swift */,
-				C1519CCC230A711000C18C5C /* Main.storyboard */,
+				C1DA7E06230A9637004E185E /* TimeLine */,
+				C155EFFE230A81540058B65D /* Login */,
 				C1519CCF230A711100C18C5C /* Assets.xcassets */,
 				C1519CD1230A711100C18C5C /* LaunchScreen.storyboard */,
 				C1519CD4230A711100C18C5C /* Info.plist */,
-				C15EA76B230A7DDE008D7359 /* GoogleService-Info.plist */,
+				C155F003230A88400058B65D /* GoogleService-Info.plist */,
 			);
 			path = MyFinalApp;
+			sourceTree = "<group>";
+		};
+		C155EFFE230A81540058B65D /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				C155EFFF230A81820058B65D /* Login.storyboard */,
+				C155F001230A81B20058B65D /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		C1DA7E06230A9637004E185E /* TimeLine */ = {
+			isa = PBXGroup;
+			children = (
+				C1519CCC230A711000C18C5C /* Main.storyboard */,
+				C1519CCA230A711000C18C5C /* ViewController.swift */,
+			);
+			path = TimeLine;
 			sourceTree = "<group>";
 		};
 		D405D9C11F9709F323356ECE /* Frameworks */ = {
@@ -152,8 +174,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1519CD3230A711100C18C5C /* LaunchScreen.storyboard in Resources */,
-				C15EA76C230A7DDF008D7359 /* GoogleService-Info.plist in Resources */,
 				C1519CD0230A711100C18C5C /* Assets.xcassets in Resources */,
+				C155F004230A88400058B65D /* GoogleService-Info.plist in Resources */,
+				C155F000230A81820058B65D /* Login.storyboard in Resources */,
 				C1519CCE230A711000C18C5C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -207,6 +230,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C155F002230A81B20058B65D /* LoginViewController.swift in Sources */,
 				C1519CCB230A711000C18C5C /* ViewController.swift in Sources */,
 				C1519CC9230A711000C18C5C /* AppDelegate.swift in Sources */,
 			);
@@ -364,7 +388,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = asobi.MyFinalApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -382,7 +406,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = asobi.MyFinalApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
