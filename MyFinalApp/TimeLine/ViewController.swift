@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseFirestore
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     // インスタンス化
@@ -24,6 +24,23 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.delegate = self
         tableView.dataSource = self
     }
+    
+    // カメラ・フォトライブラリへの遷移処理
+    func cameraAction(sourceType: UIImagePickerController.SourceType) {
+        // カメラ・フォトライブラリが使用可能かチェック
+        if UIImagePickerController.isSourceTypeAvailable(sourceType) {
+            
+            // インスタンス化
+            let cameraPicker = UIImagePickerController()
+            // ソースタイプの代入
+            cameraPicker.sourceType = sourceType
+            // デリゲートの接続
+            cameraPicker.delegate = self
+            // 画面遷移
+            self.present(cameraPicker, animated: true)
+        }
+    }
+    
     
     // セルの数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -56,6 +73,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // 投稿ボタン
     @IBAction func postButton(_ sender: Any) {
+        cameraAction(sourceType: .photoLibrary)
     }
     
     // 位置情報ボタン
