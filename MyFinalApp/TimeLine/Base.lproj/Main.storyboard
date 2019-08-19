@@ -30,10 +30,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="KUS-NK-Ebj">
-                                                    <rect key="frame" x="10" y="10" width="300" height="355.5"/>
+                                                    <rect key="frame" x="0.0" y="10" width="320" height="355.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDo-hl-9YQ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="vXO-DU-Hri"/>
                                                             </constraints>
@@ -42,13 +42,13 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HJd-uP-6hq">
-                                                            <rect key="frame" x="0.0" y="40" width="300" height="245.5"/>
+                                                            <rect key="frame" x="0.0" y="40" width="320" height="245.5"/>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="rZE-RB-QaL">
-                                                            <rect key="frame" x="0.0" y="295.5" width="300" height="60"/>
+                                                            <rect key="frame" x="0.0" y="295.5" width="320" height="60"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vux-My-fDm">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="40"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="40" id="OZN-R4-aOZ"/>
                                                                     </constraints>
@@ -57,7 +57,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Y4U-Ih-X0a">
-                                                                    <rect key="frame" x="0.0" y="40" width="300" height="20"/>
+                                                                    <rect key="frame" x="0.0" y="40" width="320" height="20"/>
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kXn-gZ-08N">
                                                                             <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -66,7 +66,7 @@
                                                                             </constraints>
                                                                         </imageView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezh-YK-d24">
-                                                                            <rect key="frame" x="30" y="0.0" width="270" height="20"/>
+                                                                            <rect key="frame" x="30" y="0.0" width="290" height="20"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
@@ -82,10 +82,10 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="KUS-NK-Ebj" secondAttribute="trailing" constant="10" id="K0j-5S-DTo"/>
+                                                <constraint firstAttribute="trailing" secondItem="KUS-NK-Ebj" secondAttribute="trailing" id="K0j-5S-DTo"/>
                                                 <constraint firstAttribute="bottom" secondItem="KUS-NK-Ebj" secondAttribute="bottom" constant="10" id="K5E-u6-5G4"/>
                                                 <constraint firstItem="KUS-NK-Ebj" firstAttribute="top" secondItem="lSu-7C-tYG" secondAttribute="top" constant="10" id="Lbz-Rv-fD6"/>
-                                                <constraint firstItem="KUS-NK-Ebj" firstAttribute="leading" secondItem="lSu-7C-tYG" secondAttribute="leading" constant="10" id="cWe-zG-xJg"/>
+                                                <constraint firstItem="KUS-NK-Ebj" firstAttribute="leading" secondItem="lSu-7C-tYG" secondAttribute="leading" id="cWe-zG-xJg"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -98,26 +98,41 @@
                                         <rect key="frame" x="0.0" y="0.0" width="64" height="50"/>
                                         <color key="backgroundColor" red="0.71481696750000001" green="0.245741552" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="ホーム"/>
+                                        <connections>
+                                            <action selector="homeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AGw-cW-y3w"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TFw-Mn-u66">
                                         <rect key="frame" x="64" y="0.0" width="64" height="50"/>
                                         <color key="backgroundColor" red="0.88159865140000004" green="0.59627723690000001" blue="0.53838604690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="検索"/>
+                                        <connections>
+                                            <action selector="searchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mx4-D7-VcH"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b1v-JA-pum">
                                         <rect key="frame" x="128" y="0.0" width="64" height="50"/>
                                         <color key="backgroundColor" red="0.1157084132" green="1" blue="0.80413677939999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="投稿"/>
+                                        <connections>
+                                            <action selector="postButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="g1X-iS-oBQ"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fnQ-Yi-z4j">
                                         <rect key="frame" x="192" y="0.0" width="64" height="50"/>
                                         <color key="backgroundColor" red="0.78067388329999998" green="1" blue="0.66780298279999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="位置情報"/>
+                                        <connections>
+                                            <action selector="locationButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tab-8Q-Qc4"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yg4-Qn-1ek">
                                         <rect key="frame" x="256" y="0.0" width="64" height="50"/>
                                         <color key="backgroundColor" red="1" green="0.13015136990000001" blue="0.74202223570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="MyPage"/>
+                                        <connections>
+                                            <action selector="ProfileButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zfn-J4-Qce"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -137,6 +152,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="sRh-Hm-DpL" id="AB2-Rb-PFZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
