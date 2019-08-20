@@ -41,6 +41,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
+    // 写真が選択された時に呼ばれる
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        // 取得できた画像情報の存在確認とUIImage型へキャスト。pickedImageという定数に格納
+        if let pickedImage = info[.originalImage] as? UIImage {
+            // ①投稿画面への遷移処理
+            let storyboard: UIStoryboard = UIStoryboard(name: "Post", bundle: nil)
+            guard let vc = storyboard.instantiateViewController(withIdentifier: "Post") as? PostViewController else {
+                print("投稿画面への遷移失敗")
+                return
+            }
+            // ②画像の受け渡し
+            vc.willPostImage = pickedImage
+            print("画像渡し成功")
+            // 画面遷移
+            picker.pushViewController(vc, animated: true)
+            
+        }
+    }
     
     // セルの数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
