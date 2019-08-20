@@ -42,15 +42,27 @@ class PostViewController: UIViewController {
     @IBOutlet weak var priceTextField: UITextField!
     // 待ち時間
     @IBOutlet weak var timeTextField: UITextField!
-    
-    
+    // scrollView
     @IBOutlet weak var scrollView: UIScrollView!
+    // トッピングの項目を追加するボタンたち
+    @IBOutlet weak var plusButton1: UIButton!
+    @IBOutlet weak var plusButton2: UIButton!
+    @IBOutlet weak var plusButton3: UIButton!
+    @IBOutlet weak var plusButton4: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // pickerで選択した画像を投稿用写真へ反映
         imageView.image = willPostImage
+        p1TextField.isHidden = true
+        p2TextField.isHidden = true
+        p3TextField.isHidden = true
+        p4TextField.isHidden = true
+        plusButton1.isHidden = false
+        plusButton2.isHidden = true
+        plusButton3.isHidden = true
+        plusButton4.isHidden = true
     }
     
     // 一番下のTextFieldを見えるようにするとき使う
@@ -138,9 +150,9 @@ class PostViewController: UIViewController {
         }
     }
     
-   
+    
     // 投稿ボタン
-    @IBAction func postsAll(_ sender: Any) {
+    @IBAction func postButton(_ sender: Any) {
         // 店名
         let shopName = shopTextField.text
         // 場所
@@ -176,6 +188,32 @@ class PostViewController: UIViewController {
     
     // トッピングの項目を増やすボタン
     @IBAction func plusButton(_ sender: UIButton) {
+        
+        if toppingTextField.text != "" {
+            switch sender.tag {
+            case 1:
+                plusButton1.isHidden = true
+                p1TextField.isHidden = false
+                plusButton2.isHidden = false
+            case 2:
+                if p1TextField.text != "" {
+                    plusButton2.isHidden = true
+                    p2TextField.isHidden = false
+                    plusButton3.isHidden = false
+                }
+            case 3:
+                if p2TextField.text != "" {
+                    plusButton3.isHidden = true
+                    p3TextField.isHidden = false
+                    plusButton4.isHidden = false
+                }
+            default :
+                if p3TextField.text != "" {
+                    plusButton4.isHidden = true
+                    p4TextField.isHidden = false
+                }
+            }
+        }
     }
     
 }

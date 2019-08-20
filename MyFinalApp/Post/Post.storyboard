@@ -22,10 +22,10 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hoP-SS-aWV">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="567.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="559.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="yff-Xs-fu1">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="567.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="559.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="RVq-rR-XIg">
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
@@ -90,8 +90,8 @@
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="eqr-QX-Qie">
-                                                        <rect key="frame" x="0.0" y="180.5" width="320" height="190.5"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="eqr-QX-Qie">
+                                                        <rect key="frame" x="0.0" y="180.5" width="320" height="182.5"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sM4-wA-BoI">
                                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="50.5"/>
@@ -111,21 +111,21 @@
                                                                     </textField>
                                                                 </subviews>
                                                             </stackView>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5Rp-8H-ISz">
-                                                                <rect key="frame" x="0.0" y="55.5" width="320" height="135"/>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="5Rp-8H-ISz">
+                                                                <rect key="frame" x="0.0" y="53.5" width="320" height="129"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o02-r1-NeT">
                                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
                                                                         <subviews>
                                                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ntS-jc-MJA">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                                                                <state key="normal" title="➕"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="138" height="30"/>
+                                                                                <state key="normal" title="＋トッピングの追加"/>
                                                                                 <connections>
                                                                                     <action selector="plusButton:" destination="Bfd-yM-wht" eventType="touchUpInside" id="Ilf-Za-ND3"/>
                                                                                 </connections>
                                                                             </button>
                                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VJQ-Tm-3IN">
-                                                                                <rect key="frame" x="30" y="0.0" width="290" height="30"/>
+                                                                                <rect key="frame" x="138" y="0.0" width="182" height="30"/>
                                                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="textColor"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -134,17 +134,17 @@
                                                                         </subviews>
                                                                     </stackView>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pbh-yd-qFH">
-                                                                        <rect key="frame" x="0.0" y="35" width="320" height="30"/>
+                                                                        <rect key="frame" x="0.0" y="33" width="320" height="30"/>
                                                                         <subviews>
                                                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kkB-wd-82W">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                                                                <state key="normal" title="➕"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="138" height="30"/>
+                                                                                <state key="normal" title="＋トッピングの追加"/>
                                                                                 <connections>
                                                                                     <action selector="plusButton:" destination="Bfd-yM-wht" eventType="touchUpInside" id="mbt-oJ-yzi"/>
                                                                                 </connections>
                                                                             </button>
                                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8db-vT-gDJ">
-                                                                                <rect key="frame" x="30" y="0.0" width="290" height="30"/>
+                                                                                <rect key="frame" x="138" y="0.0" width="182" height="30"/>
                                                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="textColor"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -153,17 +153,17 @@
                                                                         </subviews>
                                                                     </stackView>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yfX-rZ-2tp">
-                                                                        <rect key="frame" x="0.0" y="70" width="320" height="30"/>
+                                                                        <rect key="frame" x="0.0" y="66" width="320" height="30"/>
                                                                         <subviews>
                                                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dbc-Ju-BJ2">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                                                                <state key="normal" title="➕"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="138" height="30"/>
+                                                                                <state key="normal" title="＋トッピングの追加"/>
                                                                                 <connections>
                                                                                     <action selector="plusButton:" destination="Bfd-yM-wht" eventType="touchUpInside" id="dLK-5c-kjb"/>
                                                                                 </connections>
                                                                             </button>
                                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n06-Ei-0gB">
-                                                                                <rect key="frame" x="30" y="0.0" width="290" height="30"/>
+                                                                                <rect key="frame" x="138" y="0.0" width="182" height="30"/>
                                                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="textColor"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -172,17 +172,17 @@
                                                                         </subviews>
                                                                     </stackView>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vKH-lQ-5nC">
-                                                                        <rect key="frame" x="0.0" y="105" width="320" height="30"/>
+                                                                        <rect key="frame" x="0.0" y="99" width="320" height="30"/>
                                                                         <subviews>
                                                                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zk6-TJ-xD6">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                                                                <state key="normal" title="➕"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="138" height="30"/>
+                                                                                <state key="normal" title="＋トッピングの追加"/>
                                                                                 <connections>
                                                                                     <action selector="plusButton:" destination="Bfd-yM-wht" eventType="touchUpInside" id="wEg-AQ-kQB"/>
                                                                                 </connections>
                                                                             </button>
                                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YUh-KA-inM">
-                                                                                <rect key="frame" x="30" y="0.0" width="290" height="30"/>
+                                                                                <rect key="frame" x="138" y="0.0" width="182" height="30"/>
                                                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="textColor"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -195,7 +195,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="deu-bX-9Yj">
-                                                        <rect key="frame" x="0.0" y="386" width="320" height="50.5"/>
+                                                        <rect key="frame" x="0.0" y="378" width="320" height="50.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="甘さと氷の量" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sHW-GL-UuV">
                                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="20.5"/>
@@ -216,7 +216,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="er7-nG-XvU">
-                                                        <rect key="frame" x="0.0" y="451.5" width="320" height="50.5"/>
+                                                        <rect key="frame" x="0.0" y="443.5" width="320" height="50.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="価格" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cHc-lJ-e3j">
                                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="20.5"/>
@@ -234,7 +234,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TW0-96-aJB">
-                                                        <rect key="frame" x="0.0" y="517" width="320" height="50.5"/>
+                                                        <rect key="frame" x="0.0" y="509" width="320" height="50.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="待ち時間" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hR3-y6-8Sy">
                                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="20.5"/>
@@ -294,7 +294,7 @@
                         <barButtonItem key="rightBarButtonItem" title="シェア" id="Eyd-8y-zxX">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <action selector="postAll:" destination="Bfd-yM-wht" id="GWk-kS-yhw"/>
+                                <action selector="postButton:" destination="Bfd-yM-wht" id="a3K-Rb-n2D"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -307,6 +307,10 @@
                         <outlet property="p3TextField" destination="n06-Ei-0gB" id="oY0-Qa-7lK"/>
                         <outlet property="p4TextField" destination="YUh-KA-inM" id="Lda-tj-quW"/>
                         <outlet property="placeTextField" destination="ewh-8j-EuQ" id="dsB-q1-cPi"/>
+                        <outlet property="plusButton1" destination="ntS-jc-MJA" id="sMe-Q7-0QY"/>
+                        <outlet property="plusButton2" destination="kkB-wd-82W" id="f1e-KB-yQF"/>
+                        <outlet property="plusButton3" destination="Dbc-Ju-BJ2" id="zzI-eE-o8j"/>
+                        <outlet property="plusButton4" destination="zk6-TJ-xD6" id="p3G-hk-SUn"/>
                         <outlet property="priceTextField" destination="0P4-SZ-RSq" id="Uvv-sd-MST"/>
                         <outlet property="scrollView" destination="gIC-HL-ofE" id="26m-Xh-3le"/>
                         <outlet property="shopTextField" destination="spi-9g-B1q" id="ZmI-IY-Pzb"/>
