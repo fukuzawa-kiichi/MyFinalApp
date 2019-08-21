@@ -2,29 +2,56 @@
 //  ProfileViewController.swift
 //  MyFinalApp
 //
-//  Created by VERTEX24 on 2019/08/20.
+//  Created by VERTEX24 on 2019/08/21.
 //  Copyright © 2019 VERTEX24. All rights reserved.
 //
 
 import UIKit
+import FirebaseAuth
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UITableViewDelegate, UITableViewDataSource {
 
+    
+    // 投稿情報を全て格納
+    var items = [NSDictionary]()
+    
+    
+    @IBOutlet weak var profImage: UIImageView!
+    @IBOutlet weak var profNameLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // セルの数
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // セルの数は投稿情報の数
+        return items.count
     }
-    */
+    
+    // セルの設定
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        // 選択不可にする
+        cell.selectionStyle = .none
+        // 以下は最後に記載
+        
+        return cell
+    }
+    
+    // セルの高さ
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 250
+    }
+    
+    
 
+    
+   
 }

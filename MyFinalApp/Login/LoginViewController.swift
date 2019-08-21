@@ -40,7 +40,7 @@ class LoginViewController: UIViewController {
         // storyboardのfileの特定
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         // 移動先のvcをインスタンス化
-        let vc = storyboard.instantiateViewController(withIdentifier: "Main")
+        let vc = storyboard.instantiateViewController(withIdentifier: "Tab")
         // 遷移処理
         self.present(vc, animated: true)
     }
