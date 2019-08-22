@@ -108,6 +108,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         } else {
             // profileImageViewに代入
             profileImageView.image = #imageLiteral(resourceName: "人物アイコン")
+            // AppDelegateを呼び出して変数に格納する
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            // MemoTextViewに書かれた内容をAppDelegateのlastTextにか更新していく
+            appDelegate.myImage = profileImageView.image
         }
         
         // ユーザー名

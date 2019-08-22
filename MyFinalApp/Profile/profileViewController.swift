@@ -28,7 +28,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         tableView.dataSource = self
         // AppDelegateを参照にするための定数
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        // AppDelegateに定義したlastTetxtを参照し,MemoTextViewに格納する
+        // AppDelegateに定義したのを参照し,MemoTextViewに格納する
         profNameLabel.text = appDelegate.myName
         userProfImage.image = appDelegate.myImage
     }

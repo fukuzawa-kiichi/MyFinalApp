@@ -29,8 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // アプリに保存されている自分の名前をuserProfNameに格納します。
         let userDefaults = UserDefaults.standard
-        myName = userDefaults.object(forKey: "userProfName") as? String
-        myImage = userDefaults.object(forKey: "userProfImage") as? UIImage
+        myName = userDefaults.object(forKey: "myName") as? String
+        myImage = userDefaults.object(forKey: "myImage") as? UIImage
         
         
         
@@ -40,8 +40,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillResignActive(_ application: UIApplication) {
         // myNameとmyImageに格納されている入力内容をアプリに保存します。
         let userDefaults = UserDefaults.standard
-        userDefaults.set(myName, forKey: "userProfName")
-        userDefaults.set(myImage, forKey: "userProfImage")
+        userDefaults.set(myName, forKey: "myName")
+        userDefaults.set(myImage, forKey: "myImage")
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {

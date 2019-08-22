@@ -20,6 +20,8 @@ class FixProfileViewController: UIViewController, UITextFieldDelegate, UIImagePi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        userProfName.delegate = self
         // AppDelegateを参照にするための定数
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         // AppDelegateに定義したlastTetxtを参照し,MemoTextViewに格納する
@@ -79,12 +81,23 @@ class FixProfileViewController: UIViewController, UITextFieldDelegate, UIImagePi
         picker.dismiss(animated: true)
     }
     
+    // 端末似データを保存する
+    func saveText(){
+        // AppDelegateを呼び出して変数に格納する
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        // MemoTextViewに書かれた内容をAppDelegateのlastTextにか更新していく
+        appDelegate.myImage = userProfImage.image
+        appDelegate.myName = userProfName.text
+        print("更新できた")
+    }
+    
     // プロフィールへ遷移
     func toProf() {
         // storyboardのfileの特定
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         // 移動先のvcをインスタンス化
-        let vc = storyboard.instantiateViewController(withIdentifier: "Profile")
+        let vc = storyboard.instantiateViewController(withIdentifier: "Navigation")
         // 遷移処理
         self.present(vc, animated: true)
     }
@@ -114,11 +127,8 @@ class FixProfileViewController: UIViewController, UITextFieldDelegate, UIImagePi
     @IBAction func addFix(_ sender: Any) {
         // アプリ内に保存
         // プロフィール画像
-        // AppDelegateを呼び出して変数に格納する
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.myImage = userProfImage.image
-        // ユーザー名
-       appDelegate.myName = userProfName.text
+        // 端末にデータを保存
+        saveText()
         // プロフィールへ遷移
         toProf()
     }
