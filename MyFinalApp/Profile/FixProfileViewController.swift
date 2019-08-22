@@ -13,9 +13,10 @@ import FirebaseAuth
 class FixProfileViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // プロフィール画像
-    @IBOutlet weak var fixProfImage: UIImageView!
+    @IBOutlet weak var userProfImage: UIImageView!
     // 名前
-    @IBOutlet weak var fixprofName: UITextField!
+    @IBOutlet weak var userProfName: UITextField!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,22 +27,22 @@ class FixProfileViewController: UIViewController, UITextFieldDelegate, UIImagePi
     // ローカルで持っているprofile情報を反映
     func getProfile() {
         // 画像情報
-        if let profImage = UserDefaults.standard.object(forKey: "profileImage") {
+        if let profImage = UserDefaults.standard.object(forKey: "userProfImage") {
             let dataImage = NSData(base64Encoded: profImage as! String, options: .ignoreUnknownCharacters)
             // 更にUIImage型に変換
             let decodedImage = UIImage(data: dataImage! as Data)
             // profileImageViewに代入
-            fixProfImage.image = decodedImage
+            userProfImage.image = decodedImage
         } else {
             // なければアイコンを入れる
-            fixProfImage.image = #imageLiteral(resourceName: "人物アイコン")
+            userProfImage.image = #imageLiteral(resourceName: "人物アイコン")
         }
         // 名前の情報
-        if let profName = UserDefaults.standard.object(forKey: "userName") as? String {
+        if let profName = UserDefaults.standard.object(forKey: "userProfName") as? String {
             // userNameTextFieldに代入
-            fixprofName.text = profName
+            userProfName.text = profName
         } else {
-            fixprofName.text = "匿名"
+            userProfName.text = "匿名"
         }
     }
     
@@ -81,14 +82,22 @@ class FixProfileViewController: UIViewController, UITextFieldDelegate, UIImagePi
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         // 所得で来た画像情報の存在処理
         if let pickedImage = info[.originalImage] as? UIImage {
-            fixProfImage.contentMode = .scaleToFill
-            fixProfImage.image = pickedImage
+            userProfImage.contentMode = .scaleToFill
+            userProfImage.image = pickedImage
         }
         // pickerは閉じる
         picker.dismiss(animated: true)
     }
     
-    
+    // プロフィールへ遷移
+    func toProf() {
+        // storyboardのfileの特定
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        // 移動先のvcをインスタンス化
+        let vc = storyboard.instantiateViewController(withIdentifier: "Profile")
+        // 遷移処理
+        self.present(vc, animated: true)
+    }
     
     // 画像を変えるボタン
     @IBAction func imageButton(_ sender: Any) {
@@ -115,24 +124,24 @@ class FixProfileViewController: UIViewController, UITextFieldDelegate, UIImagePi
     @IBAction func addFix(_ sender: Any) {
         var data:NSData = NSData()
         // imageの存在確認
-        if let image = fixProfImage.image {
+        if let image = userProfImage.image {
             data = image.jpegData(compressionQuality: 0.1)! as NSData
         }
         let base64String = data.base64EncodedString(options: .lineLength64Characters) as String
         // textFieldの中身をuserNameに代入
-        let userName = fixprofName.text
+        let userName = userProfName.text
         // アプリ内に保存
         // プロフィール画像
-        UserDefaults.standard.set(base64String, forKey: "profileImage")
+        UserDefaults.standard.set(base64String, forKey: "userProfImage")
         // ユーザー名
-        UserDefaults.standard.set(userName, forKey: "userName")
-        // 遷移
-        dismiss(animated: true)
+        UserDefaults.standard.set(userName, forKey: "userProfName")
+       // プロフィールへ遷移
+        toProf()
     }
     // キーボードを消す
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if fixprofName.isFirstResponder {
-            fixprofName.resignFirstResponder()
+        if userProfName.isFirstResponder {
+            userProfName.resignFirstResponder()
         }
     }
 }

@@ -16,6 +16,14 @@ class PostViewController: UIViewController {
     // pickerで選択した写真を受け取る変数
     var willPostImage: UIImage = UIImage()
     
+    // ユーザーのメアド
+    var userEmail: String = ""
+    // ユーザーの名前
+    var userProfName = ""
+    // ユーザーの画像
+    var userProfImage: UIImageView = UIImageView()
+    
+    
     // すべてtユーザーに記入してもらう
     // 投稿する画像
     @IBOutlet weak var imageView: UIImageView!
@@ -55,6 +63,8 @@ class PostViewController: UIViewController {
         super.viewDidLoad()
         // pickerで選択した画像を投稿用写真へ反映
         imageView.image = willPostImage
+        getProfile()
+        
         p1TextField.isHidden = true
         p2TextField.isHidden = true
         p3TextField.isHidden = true
@@ -63,6 +73,29 @@ class PostViewController: UIViewController {
         plusButton2.isHidden = true
         plusButton3.isHidden = true
         plusButton4.isHidden = true
+    }
+    
+    
+    // ローカルで持っているprofile情報を反映
+    func getProfile() {
+        // 画像情報
+        if let profImage = UserDefaults.standard.object(forKey: "userProfImage") {
+            let dataImage = NSData(base64Encoded: profImage as! String, options: .ignoreUnknownCharacters)
+            // 更にUIImage型に変換
+            let decodedImage = UIImage(data: dataImage! as Data)
+            // profileImageViewに代入
+            userProfImage.image = decodedImage!
+        } else {
+            // なければアイコンを入れる
+            userProfImage.image = #imageLiteral(resourceName: "人物アイコン")
+        }
+        // 名前の情報
+        if let profName = UserDefaults.standard.object(forKey: "userProfName") as? String {
+            // profileNameLabelに代入
+            userProfName = profName
+        } else {
+            userProfName = "匿名"
+        }
     }
     
     // 一番下のTextFieldを見えるようにするとき使う
@@ -172,9 +205,15 @@ class PostViewController: UIViewController {
             postImageData = postImage.jpegData(compressionQuality: 0.1)! as NSData
         }
         let base64PostImage = postImageData.base64EncodedString(options: .lineLength64Characters) as String
+        // プロフィール画像
+        var profileImageData:NSData = NSData()
+        if let profileImage = userProfImage.image {
+            profileImageData = profileImage.jpegData(compressionQuality: 0.1)! as NSData
+        }
+        let base64ProfileImage = profileImageData.base64EncodedString(options: .lineLength64Characters) as String
         
         // サーバーに飛ばす箱(辞書型)
-        let postData: NSDictionary = ["shopName": shopName ?? "", "place": place ?? "", "postImage": base64PostImage, "base": base ?? "", "top1": top1 ?? "", "top2": top2 ?? "", "top3": top3 ?? "", "top4": top4 ?? "", "top5": top5 ?? ""]
+        let postData: NSDictionary = ["userProfName": userProfName, "userProfImage": base64ProfileImage, "shopName": shopName ?? "", "place": place ?? "", "postImage": base64PostImage, "base": base ?? "", "top1": top1 ?? "", "top2": top2 ?? "", "top3": top3 ?? "", "top4": top4 ?? "", "top5": top5 ?? ""]
         // 辞書ごとFirestoreの"user"へpost
         db.collection("postData").addDocument(data: postData as! [String : Any])
         

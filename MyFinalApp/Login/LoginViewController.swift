@@ -16,10 +16,12 @@ class LoginViewController: UIViewController {
     // パスワード打つとこ
     @IBOutlet weak var passwordTextField: UITextField!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+       
     }
     
     // キーボードを閉じる処理
@@ -35,6 +37,17 @@ class LoginViewController: UIViewController {
         }
     }
     
+    /*
+    // ViewControllerにユーザーのメアドを送る
+    func sendEmail() {
+        // storyboardのfileの特定
+        let storyboard: UIStoryboard = UIStoryboard(name: "Post", bundle: nil)
+        // 移動先のvcをインスタンス化
+        let vc = storyboard.instantiateViewController(withIdentifier: "Post")
+        // ユーザーのメアドを送る
+        self.present(vc, animated: false )
+    }
+    */
     // タイムラインへ遷移
     func toTimeLine() {
         // storyboardのfileの特定
