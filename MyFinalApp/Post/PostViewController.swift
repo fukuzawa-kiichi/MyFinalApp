@@ -16,10 +16,8 @@ class PostViewController: UIViewController {
     // pickerで選択した写真を受け取る変数
     var willPostImage: UIImage = UIImage()
     
-    // ユーザーのメアド
-    var userEmail: String = ""
     // ユーザーの名前
-    var userProfName = ""
+    var userProfName: String = ""
     // ユーザーの画像
     var userProfImage: UIImageView = UIImageView()
     
@@ -63,7 +61,11 @@ class PostViewController: UIViewController {
         super.viewDidLoad()
         // pickerで選択した画像を投稿用写真へ反映
         imageView.image = willPostImage
-        getProfile()
+        // AppDelegateを参照にするための定数
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        // AppDelegateに定義したlastTetxtを参照し,MemoTextViewに格納する
+        userProfName = appDelegate.myName!
+        userProfImage.image = appDelegate.myImage
         
         p1TextField.isHidden = true
         p2TextField.isHidden = true
@@ -75,28 +77,6 @@ class PostViewController: UIViewController {
         plusButton4.isHidden = true
     }
     
-    
-    // ローカルで持っているprofile情報を反映
-    func getProfile() {
-        // 画像情報
-        if let profImage = UserDefaults.standard.object(forKey: "userProfImage") {
-            let dataImage = NSData(base64Encoded: profImage as! String, options: .ignoreUnknownCharacters)
-            // 更にUIImage型に変換
-            let decodedImage = UIImage(data: dataImage! as Data)
-            // profileImageViewに代入
-            userProfImage.image = decodedImage!
-        } else {
-            // なければアイコンを入れる
-            userProfImage.image = #imageLiteral(resourceName: "人物アイコン")
-        }
-        // 名前の情報
-        if let profName = UserDefaults.standard.object(forKey: "userProfName") as? String {
-            // profileNameLabelに代入
-            userProfName = profName
-        } else {
-            userProfName = "匿名"
-        }
-    }
     
     // 一番下のTextFieldを見えるようにするとき使う
     override func viewWillAppear(_ animated: Bool) {

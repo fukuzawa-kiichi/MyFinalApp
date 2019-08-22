@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import FirebaseAuth
+
 
 
 class FixProfileViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -20,30 +20,20 @@ class FixProfileViewController: UIViewController, UITextFieldDelegate, UIImagePi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getProfile()
-        
+        // AppDelegateを参照にするための定数
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        // AppDelegateに定義したlastTetxtを参照し,MemoTextViewに格納する
+        userProfName.text = appDelegate.myName
+        userProfImage.image = appDelegate.myImage
     }
     
-    // ローカルで持っているprofile情報を反映
-    func getProfile() {
-        // 画像情報
-        if let profImage = UserDefaults.standard.object(forKey: "userProfImage") {
-            let dataImage = NSData(base64Encoded: profImage as! String, options: .ignoreUnknownCharacters)
-            // 更にUIImage型に変換
-            let decodedImage = UIImage(data: dataImage! as Data)
-            // profileImageViewに代入
-            userProfImage.image = decodedImage
-        } else {
-            // なければアイコンを入れる
-            userProfImage.image = #imageLiteral(resourceName: "人物アイコン")
-        }
-        // 名前の情報
-        if let profName = UserDefaults.standard.object(forKey: "userProfName") as? String {
-            // userNameTextFieldに代入
-            userProfName.text = profName
-        } else {
-            userProfName.text = "匿名"
-        }
+    // MemoTextViewになにか入力されたとき動作する
+    func textViewDidChange(_ MemoTextView: UITextField) {
+        // AppDelegateを呼び出して変数に格納する
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        // MemoTextViewに書かれた内容をAppDelegateのlastTextにか更新していく
+        appDelegate.myName = userProfName.text
     }
     
     // カメラとフォトライブラリーへの遷移処理
@@ -109,7 +99,7 @@ class FixProfileViewController: UIViewController, UITextFieldDelegate, UIImagePi
         })
         // アルバム
         let openPhotos = UIAlertAction(title: "アルバム", style: .default, handler: {(action: UIAlertAction) in
-             self.photoAction(sourceType: .photoLibrary)
+            self.photoAction(sourceType: .photoLibrary)
         })
         // キャンセル
         let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel)
@@ -122,20 +112,14 @@ class FixProfileViewController: UIViewController, UITextFieldDelegate, UIImagePi
     }
     // 決定
     @IBAction func addFix(_ sender: Any) {
-        var data:NSData = NSData()
-        // imageの存在確認
-        if let image = userProfImage.image {
-            data = image.jpegData(compressionQuality: 0.1)! as NSData
-        }
-        let base64String = data.base64EncodedString(options: .lineLength64Characters) as String
-        // textFieldの中身をuserNameに代入
-        let userName = userProfName.text
         // アプリ内に保存
         // プロフィール画像
-        UserDefaults.standard.set(base64String, forKey: "userProfImage")
+        // AppDelegateを呼び出して変数に格納する
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.myImage = userProfImage.image
         // ユーザー名
-        UserDefaults.standard.set(userName, forKey: "userProfName")
-       // プロフィールへ遷移
+       appDelegate.myName = userProfName.text
+        // プロフィールへ遷移
         toProf()
     }
     // キーボードを消す

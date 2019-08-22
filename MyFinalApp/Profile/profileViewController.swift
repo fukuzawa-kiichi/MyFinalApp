@@ -14,8 +14,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     // 投稿情報を全て格納
     var items = [NSDictionary]()
-    var image : UIImage!
-    var name = ""
     
     @IBOutlet weak var userProfImage: UIImageView!
     @IBOutlet weak var profNameLabel: UILabel!
@@ -28,39 +26,13 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
 
         tableView.delegate = self
         tableView.dataSource = self
-        userProfImage.image = image
-        profNameLabel.text = name
-       // getProfile()
+        // AppDelegateを参照にするための定数
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        // AppDelegateに定義したlastTetxtを参照し,MemoTextViewに格納する
+        profNameLabel.text = appDelegate.myName
+        userProfImage.image = appDelegate.myImage
     }
-    /*
-    // ローカルで持っているprofile情報を反映
-    func getProfile() {
-        // 画像情報
-        
-        if let profImage = UserDefaults.standard.object(forKey: "userProfImage") {
-            // NSData型に変換
-            let dataImage = NSData(base64Encoded: profImage as! String ,options: NSData.Base64DecodingOptions.ignoreUnknownCharacters)
-            // さらにUIImage型へ変換
-            let decodedImage = UIImage(data: dataImage! as Data)
-            // prfileImageViewへ代入
-            userProfImage.image = decodedImage
-        } else {
-            // なければアイコン画像をいれておく
-            userProfImage.image = #imageLiteral(resourceName: "人物アイコン")
-        }
-        
-        // 名前情報
-        if let profName = UserDefaults.standard.object(forKey: "userProfName") as? String {
-            // profileNameLabelへ代入
-            profNameLabel.text = profName
-        } else {
-            // なければ匿名としておく
-            profNameLabel.text = "匿名"
-        }
-        
-    }
-    */
-    
+   
     // セルの数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // セルの数は投稿情報の数

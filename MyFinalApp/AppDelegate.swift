@@ -14,6 +14,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
+    // ユーザーネームの保存先
+    var myName: String?
+    // ユーザーイメージの保存先
+    var myImage: UIImage?
+    
     // 初期化処理
     override init() {
         super.init()
@@ -22,13 +27,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        // アプリに保存されている自分の名前をuserProfNameに格納します。
+        let userDefaults = UserDefaults.standard
+        myName = userDefaults.object(forKey: "userProfName") as? String
+        myImage = userDefaults.object(forKey: "userProfImage") as? UIImage
+        
+        
+        
         return true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+        // myNameとmyImageに格納されている入力内容をアプリに保存します。
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(myName, forKey: "userProfName")
+        userDefaults.set(myImage, forKey: "userProfImage")
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
