@@ -96,7 +96,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         baseNameLabel.text = dict["base"] as? String
         
         // プロフィール画像
-        let profileImageView = cell.viewWithTag(4) as! UIImageView
+        let userProfImage = cell.viewWithTag(4) as! UIImageView
         // 画像情報
         if let profImage = dict["userProfImage"] {
             //NSData型に変換
@@ -104,14 +104,21 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             // 更にUIImage型に変換
             let  decadedProfImage = UIImage(data: dataProfImage! as Data)
             // profileImageViewに代入
-            profileImageView.image = decadedProfImage
+            userProfImage.image = decadedProfImage
         } else {
             // profileImageViewに代入
-            profileImageView.image = #imageLiteral(resourceName: "人物アイコン")
+            userProfImage.image = #imageLiteral(resourceName: "人物アイコン")
+         /*   // base64型(String型)に変換する
+            // プロフィール画像
+            var profileImageData:NSData = NSData()
+            if let profileImage = userProfImage.image {
+                profileImageData = profileImage.jpegData(compressionQuality: 0.1)! as NSData
+            }
+            let base64ProfileImage = profileImageData.base64EncodedString(options: .lineLength64Characters) as String
             // AppDelegateを呼び出して変数に格納する
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            // MemoTextViewに書かれた内容をAppDelegateのlastTextにか更新していく
-            appDelegate.myImage = profileImageView.image
+            appDelegate.myImage = base64ProfileImage
+ */
         }
         
         // ユーザー名

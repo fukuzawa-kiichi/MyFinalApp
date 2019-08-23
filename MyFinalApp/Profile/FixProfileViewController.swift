@@ -12,6 +12,11 @@ import UIKit
 
 class FixProfileViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+   // let userDefaultsName = UserDefaults.standard
+ //   let userDefaultsImage = UserDefaults.standard
+    var fixName: String = ""
+    var fixImage:UIImage!
+    
     // プロフィール画像
     @IBOutlet weak var userProfImage: UIImageView!
     // 名前
@@ -20,22 +25,24 @@ class FixProfileViewController: UIViewController, UITextFieldDelegate, UIImagePi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         userProfName.delegate = self
+        
         // AppDelegateを参照にするための定数
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         // AppDelegateに定義したlastTetxtを参照し,MemoTextViewに格納する
         userProfName.text = appDelegate.myName
-        userProfImage.image = appDelegate.myImage
+       reconversion(userProfImage)
     }
     
     // MemoTextViewになにか入力されたとき動作する
     func textViewDidChange(_ MemoTextView: UITextField) {
-        // AppDelegateを呼び出して変数に格納する
+        fixName = userProfName.text!
+    /*    // AppDelegateを呼び出して変数に格納する
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
         // MemoTextViewに書かれた内容をAppDelegateのlastTextにか更新していく
-        appDelegate.myName = userProfName.text
+        appDelegate.myName = fixName
+ */
     }
     
     // カメラとフォトライブラリーへの遷移処理
@@ -76,20 +83,36 @@ class FixProfileViewController: UIViewController, UITextFieldDelegate, UIImagePi
         if let pickedImage = info[.originalImage] as? UIImage {
             userProfImage.contentMode = .scaleToFill
             userProfImage.image = pickedImage
+            fixImage = pickedImage
         }
         // pickerは閉じる
         picker.dismiss(animated: true)
     }
     
-    // 端末似データを保存する
+    // 端末に名前のデータを保存する
     func saveText(){
+        
+        fixName = userProfName.text!
         // AppDelegateを呼び出して変数に格納する
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        
-        // MemoTextViewに書かれた内容をAppDelegateのlastTextにか更新していく
-        appDelegate.myImage = userProfImage.image
-        appDelegate.myName = userProfName.text
-        print("更新できた")
+        appDelegate.myName = fixName
+    //    userDefaultsName.set(fixName, forKey: "myName")
+        print("名前入れたよ")
+    }
+    
+    // 端末に画像のデータを保存
+    func changeString() {
+        // base64型(String型)に変換する
+        // プロフィール画像
+        var profileImageData:NSData = NSData()
+         let profileImage = fixImage!
+            profileImageData = profileImage.jpegData(compressionQuality: 0.1)! as NSData
+        let base64ProfileImage = profileImageData.base64EncodedString(options: .lineLength64Characters) as String
+        // AppDelegateを呼び出して変数に格納する
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.myImage = base64ProfileImage
+    //    userDefaultsImage.set(fixImage, forKey: "myImage")
+        print("変換できたよ!")
     }
     
     // プロフィールへ遷移
@@ -126,7 +149,8 @@ class FixProfileViewController: UIViewController, UITextFieldDelegate, UIImagePi
     // 決定
     @IBAction func addFix(_ sender: Any) {
         // アプリ内に保存
-        // プロフィール画像
+        // プロフィール画像をデータに保存
+        changeString()
         // 端末にデータを保存
         saveText()
         // プロフィールへ遷移

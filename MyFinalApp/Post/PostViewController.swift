@@ -17,9 +17,9 @@ class PostViewController: UIViewController {
     var willPostImage: UIImage = UIImage()
     
     // ユーザーの名前
-    var userProfName: String = ""
+    var userProfName: String = "ゲスト"
     // ユーザーの画像
-    var userProfImage: UIImageView = UIImageView()
+    var userProfImage: String = ""
     
     
     // すべてtユーザーに記入してもらう
@@ -65,7 +65,7 @@ class PostViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         // AppDelegateに定義したlastTetxtを参照し,MemoTextViewに格納する
         userProfName = appDelegate.myName!
-        userProfImage.image = appDelegate.myImage
+        userProfImage = appDelegate.myImage!
         
         p1TextField.isHidden = true
         p2TextField.isHidden = true
@@ -185,15 +185,12 @@ class PostViewController: UIViewController {
             postImageData = postImage.jpegData(compressionQuality: 0.1)! as NSData
         }
         let base64PostImage = postImageData.base64EncodedString(options: .lineLength64Characters) as String
-        // プロフィール画像
-        var profileImageData:NSData = NSData()
-        if let profileImage = userProfImage.image {
-            profileImageData = profileImage.jpegData(compressionQuality: 0.1)! as NSData
-        }
-        let base64ProfileImage = profileImageData.base64EncodedString(options: .lineLength64Characters) as String
-        
+        // AppDelegateを参照にするための定数
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        // AppDelegateに定義したlastTetxtを参照し,MemoTextViewに格納する
+        userProfImage = appDelegate.myImage!
         // サーバーに飛ばす箱(辞書型)
-        let postData: NSDictionary = ["userProfName": userProfName, "userProfImage": base64ProfileImage, "shopName": shopName ?? "", "place": place ?? "", "postImage": base64PostImage, "base": base ?? "", "top1": top1 ?? "", "top2": top2 ?? "", "top3": top3 ?? "", "top4": top4 ?? "", "top5": top5 ?? ""]
+        let postData: NSDictionary = ["userProfName": userProfName, "userProfImage": userProfImage, "shopName": shopName ?? "", "place": place ?? "", "postImage": base64PostImage, "base": base ?? "", "top1": top1 ?? "", "top2": top2 ?? "", "top3": top3 ?? "", "top4": top4 ?? "", "top5": top5 ?? ""]
         // 辞書ごとFirestoreの"user"へpost
         db.collection("postData").addDocument(data: postData as! [String : Any])
         

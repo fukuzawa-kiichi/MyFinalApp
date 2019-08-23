@@ -28,9 +28,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         tableView.dataSource = self
         // AppDelegateを参照にするための定数
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        // AppDelegateに定義したのを参照し,MemoTextViewに格納する
+        // Labelに名前を入れる
         profNameLabel.text = appDelegate.myName
-        userProfImage.image = appDelegate.myImage
+        // imgeViewに画像を入れる
+        reconversion(userProfImage)
     }
    
     // セルの数
