@@ -26,11 +26,21 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        reload()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+       reload()
+        return
+    }
+    
+    func reload() {
         // ユーザー名を代入
         let profNameDefaults = UserDefaults.standard
         let profName = profNameDefaults.string(forKey: "profName")
         profNameLabel.text = profName
-    
+        
         // ユーザー画像を代入
         let profImageDefaults = UserDefaults.standard
         let profImage = profImageDefaults.string(forKey: "profImage")

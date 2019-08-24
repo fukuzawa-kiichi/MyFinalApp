@@ -121,12 +121,7 @@ class FixProfileViewController: UIViewController, UITextFieldDelegate, UIImagePi
     }
     // プロフィールへ遷移
     func toProf() {
-        // storyboardのfileの特定
-        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        // 移動先のvcをインスタンス化
-        let vc = storyboard.instantiateViewController(withIdentifier: "Tab")
-        // 遷移処理
-        self.present(vc, animated: true)
+       self.navigationController?.popViewController(animated: true)
     }
     
     // 画像を変えるボタン
