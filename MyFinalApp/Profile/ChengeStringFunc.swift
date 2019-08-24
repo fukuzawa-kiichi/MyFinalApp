@@ -8,16 +8,18 @@
 
 import UIKit
 
-func reconversion(_ sender: UIImageView) {
-    // AppDelegateを呼び出して変数に格納する
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+func reconversion(_ sender: UIImageView, string: String?) {
     // 画像情報
-     let profImage = appDelegate.myImage!
+    if let profImage = string {
         //NSData型に変換
-    let dataProfImage = NSData(base64Encoded: profImage, options: .ignoreUnknownCharacters)
+        let dataProfImage = NSData(base64Encoded: profImage, options: .ignoreUnknownCharacters)
         // 更にUIImage型に変換
         let  decadedProfImage = UIImage(data: dataProfImage! as Data)
         // profileImageViewに代入
         sender.image = decadedProfImage
+    }else {
+        sender.image = #imageLiteral(resourceName: "人物アイコン")
+    }
     print("代入成功")
 }
+

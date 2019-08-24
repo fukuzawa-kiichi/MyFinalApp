@@ -108,17 +108,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         } else {
             // profileImageViewに代入
             userProfImage.image = #imageLiteral(resourceName: "人物アイコン")
-         /*   // base64型(String型)に変換する
-            // プロフィール画像
-            var profileImageData:NSData = NSData()
-            if let profileImage = userProfImage.image {
-                profileImageData = profileImage.jpegData(compressionQuality: 0.1)! as NSData
-            }
-            let base64ProfileImage = profileImageData.base64EncodedString(options: .lineLength64Characters) as String
-            // AppDelegateを呼び出して変数に格納する
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            appDelegate.myImage = base64ProfileImage
- */
+       
         }
         
         // ユーザー名

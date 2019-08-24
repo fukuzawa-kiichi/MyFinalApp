@@ -17,7 +17,7 @@ class PostViewController: UIViewController {
     var willPostImage: UIImage = UIImage()
     
     // ユーザーの名前
-    var userProfName: String = "ゲスト"
+    var userProfName: String = ""
     // ユーザーの画像
     var userProfImage: String = ""
     
@@ -61,12 +61,16 @@ class PostViewController: UIViewController {
         super.viewDidLoad()
         // pickerで選択した画像を投稿用写真へ反映
         imageView.image = willPostImage
-        // AppDelegateを参照にするための定数
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        // AppDelegateに定義したlastTetxtを参照し,MemoTextViewに格納する
-        userProfName = appDelegate.myName!
-        userProfImage = appDelegate.myImage!
+        // ユーザー名を代入
+        let profNameDefaults = UserDefaults.standard
+        let profName = profNameDefaults.string(forKey: "profName")
+        userProfName = profName!
+        // ユーザー画像を代入
+        let profImageDefaults = UserDefaults.standard
+        let profImage = profImageDefaults.string(forKey: "profImage")
+        userProfImage = profImage!
         
+        // トッピングのテキストと追加ボタンを隠しておく
         p1TextField.isHidden = true
         p2TextField.isHidden = true
         p3TextField.isHidden = true
@@ -185,10 +189,7 @@ class PostViewController: UIViewController {
             postImageData = postImage.jpegData(compressionQuality: 0.1)! as NSData
         }
         let base64PostImage = postImageData.base64EncodedString(options: .lineLength64Characters) as String
-        // AppDelegateを参照にするための定数
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        // AppDelegateに定義したlastTetxtを参照し,MemoTextViewに格納する
-        userProfImage = appDelegate.myImage!
+        
         // サーバーに飛ばす箱(辞書型)
         let postData: NSDictionary = ["userProfName": userProfName, "userProfImage": userProfImage, "shopName": shopName ?? "", "place": place ?? "", "postImage": base64PostImage, "base": base ?? "", "top1": top1 ?? "", "top2": top2 ?? "", "top3": top3 ?? "", "top4": top4 ?? "", "top5": top5 ?? ""]
         // 辞書ごとFirestoreの"user"へpost

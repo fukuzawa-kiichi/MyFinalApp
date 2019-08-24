@@ -23,17 +23,20 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableView.delegate = self
         tableView.dataSource = self
-        // AppDelegateを参照にするための定数
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        // Labelに名前を入れる
-        profNameLabel.text = appDelegate.myName
-        // imgeViewに画像を入れる
-        reconversion(userProfImage)
+        // ユーザー名を代入
+        let profNameDefaults = UserDefaults.standard
+        let profName = profNameDefaults.string(forKey: "profName")
+        profNameLabel.text = profName
+    
+        // ユーザー画像を代入
+        let profImageDefaults = UserDefaults.standard
+        let profImage = profImageDefaults.string(forKey: "profImage")
+        reconversion(userProfImage, string: profImage)
     }
-   
+    
     // セルの数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // セルの数は投稿情報の数
