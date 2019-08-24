@@ -9,6 +9,8 @@
 import UIKit
 import FirebaseFirestore
 
+
+// MainStoryboaerの3つ目のタブが押されたときの処理
 class NewViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // インスタンス化

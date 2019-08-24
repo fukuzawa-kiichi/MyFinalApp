@@ -141,7 +141,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="QQl-VX-OUV"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Serach" id="ncC-dD-7ZE"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="Serach" id="ncC-dD-7ZE"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SAY-BX-WDr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -157,7 +157,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="V1L-sU-mcK"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="New" id="f6R-JY-Ua8"/>
+                    <tabBarItem key="tabBarItem" tag="2" title="New" id="f6R-JY-Ua8"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TSi-yE-JGg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -173,7 +173,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Fu2-bD-k9x"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Place" id="pWR-Ce-dge"/>
+                    <tabBarItem key="tabBarItem" tag="3" title="Place" id="pWR-Ce-dge"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hhj-za-Ps2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -295,6 +295,7 @@
                         <viewLayoutGuide key="safeArea" id="UlS-7y-1TD"/>
                     </view>
                     <navigationItem key="navigationItem" title="MyProfiel" id="HMZ-cg-c7v"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="profNameLabel" destination="l8v-5G-G2h" id="mUd-aI-TVs"/>
                         <outlet property="tableView" destination="0ou-WR-sPX" id="fbu-5Y-nzv"/>
@@ -367,6 +368,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Sxo-Ob-KkF"/>
                     </view>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="userProfImage" destination="DV2-dR-qOQ" id="i4W-Fd-55U"/>
                         <outlet property="userProfName" destination="PvI-uH-lXW" id="ZbB-dn-x5Z"/>
@@ -379,8 +381,9 @@
         <!--MyPage-->
         <scene sceneID="52V-S1-GEM">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TcE-aV-V7T" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="Navigation" automaticallyAdjustsScrollViewInsets="NO" id="Bu5-K0-vej" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="MyPage" id="Pxg-uW-6aJ"/>
+                    <tabBarItem key="tabBarItem" tag="4" title="MyPage" id="Pxg-uW-6aJ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hKB-eC-hwk">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
@@ -391,7 +394,6 @@
                         <segue destination="mPF-wb-xT1" kind="relationship" relationship="rootViewController" id="ODH-Cb-zih"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TcE-aV-V7T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-626.25" y="1567.605633802817"/>
         </scene>
