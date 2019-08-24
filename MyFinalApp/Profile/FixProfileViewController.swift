@@ -86,7 +86,6 @@ class FixProfileViewController: UIViewController, UITextFieldDelegate, UIImagePi
         if let pickedImage = info[.originalImage] as? UIImage {
             userProfImage.contentMode = .scaleToFill
             userProfImage.image = pickedImage
-            fixImage = pickedImage
         }
         // pickerは閉じる
         picker.dismiss(animated: true)
@@ -103,6 +102,7 @@ class FixProfileViewController: UIViewController, UITextFieldDelegate, UIImagePi
     
     // 端末に画像のデータを保存
     func changeString() {
+        fixImage = userProfImage.image
         // base64型(String型)に変換する
         // プロフィール画像
         var profileImageData:NSData = NSData()
@@ -124,7 +124,7 @@ class FixProfileViewController: UIViewController, UITextFieldDelegate, UIImagePi
         // storyboardのfileの特定
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         // 移動先のvcをインスタンス化
-        let vc = storyboard.instantiateViewController(withIdentifier: "Navigation")
+        let vc = storyboard.instantiateViewController(withIdentifier: "Tab")
         // 遷移処理
         self.present(vc, animated: true)
     }

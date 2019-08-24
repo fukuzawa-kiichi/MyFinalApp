@@ -154,20 +154,7 @@
                     <view key="view" contentMode="scaleToFill" id="gxG-se-M07">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pns-wS-Sq0">
-                                <rect key="frame" x="137" y="269" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="cameraButton:" destination="sNr-P7-7Ia" eventType="touchUpInside" id="fe4-gJ-O3e"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="Pns-wS-Sq0" firstAttribute="centerY" secondItem="gxG-se-M07" secondAttribute="centerY" id="Feo-kn-YHe"/>
-                            <constraint firstItem="Pns-wS-Sq0" firstAttribute="centerX" secondItem="gxG-se-M07" secondAttribute="centerX" id="i2y-wg-WET"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="V1L-sU-mcK"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="New" id="f6R-JY-Ua8"/>

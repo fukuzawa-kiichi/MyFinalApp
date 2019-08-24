@@ -16,8 +16,20 @@ class NewViewController: UIViewController, UIImagePickerControllerDelegate, UINa
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        cameraAction(sourceType: .photoLibrary)
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // プロフィールへ遷移
+            // storyboardのfileの特定
+            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            // 移動先のvcをインスタンス化
+            let vc = storyboard.instantiateViewController(withIdentifier: "Tab")
+            // 遷移処理
+            self.present(vc, animated: true)
+        return 
     }
     
     // カメラ・フォトライブラリへの遷移処理
@@ -56,9 +68,6 @@ class NewViewController: UIViewController, UIImagePickerControllerDelegate, UINa
     }
     
     
-    @IBAction func cameraButton(_ sender: Any) {
-        cameraAction(sourceType: .photoLibrary)
-    }
-    
+  
   
 }
