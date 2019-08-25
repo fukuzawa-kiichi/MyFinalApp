@@ -24,6 +24,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // インスタンス化
+        navigationController?.delegate = self
+        // navigationbarの戻るボタンに文字を入れない処理
+        let backButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = backButtonItem
         
         tableView.delegate = self
         tableView.dataSource = self

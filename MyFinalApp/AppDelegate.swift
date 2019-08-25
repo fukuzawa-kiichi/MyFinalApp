@@ -33,7 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let userDefaultsImage = UserDefaults.standard
         myImage = userDefaultsImage.object(forKey: "myImage") as? String
         
-        
+        // navigationbarの戻るボタンを黒にする
+        UINavigationBar.appearance().tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         
         return true
     }

@@ -16,7 +16,7 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
     // インスタンス化
     let db = Firestore.firestore()
     
-
+    
     // 店名
     @IBOutlet weak var shopName: UINavigationItem!
     // 投稿者の画像
@@ -46,8 +46,14 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        top2.isHidden = true
+        top3.isHidden = true
+        top4.isHidden = true
+        top5.isHidden = true
+        
         // 店名
-        shopName = item["shopName"] as? UINavigationItem
+        shopName.title = item["shopName"] as? String
         // 投稿画像
         let postImg = item["postImage"] as? String
         reconversion(postImage, string: postImg)
@@ -57,26 +63,38 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
         let profImg = item["userProfImage"] as? String
         reconversion(postUserProfImage, string: profImg)
         // base
-        base.text = item["base"] as? String
+        base.text = ("ベースドリンク : \(String(describing: item["base"] as! String))")
         // top1
-        top1.text = item["top1"] as? String
+        top1.text = ("+ \(String(describing: item["top1"] as! String))")
         // top2
-        top2.text = item["top2"] as? String
+        if item["top2"] as! String != "" {
+            top2.isHidden = false
+            top2.text = ("+ \(String(describing: item["top2"] as! String))")
+        }
         // top3
-        top3.text = item["top3"] as? String
+        if item["top3"] as! String != "" {
+            top3.isHidden = false
+            top3.text = ("+ \(String(describing: item["top3"] as! String))")
+        }
         // top4
-        top4.text = item["top4"] as? String
+        if item["top4"] as! String != "" {
+            top4.isHidden = false
+            top4.text = ("+ \(String(describing: item["top4"] as! String))")
+        }
         // top5
-        top5.text = item["top5"] as? String
+        if item["top5"] as! String != "" {
+            top5.isHidden = false
+            top5.text = ("+ \(String(describing: item["top5"] as! String))")
+        }
         // ice
-        ice.text = item["ice"] as? String
+        ice.text = ("甘さと氷の量 : \(String(describing: item["ice"] as! String))")
         // price
-        price.text = item["price"] as? String
+        price.text = ("価格 : \(String(describing: item["price"] as! String))")
         // place
-        place.text = item["place"] as? String
+        place.text = ("場所 : \(String(describing: item["place"] as! String))")
         // time
-        time.text = item["time"] as? String
+        time.text = ("待ち時間 : \(String(describing: item["time"] as! String))分")
     }
     
-
+    
 }
