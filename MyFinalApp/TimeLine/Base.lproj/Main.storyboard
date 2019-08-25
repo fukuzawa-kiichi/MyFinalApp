@@ -585,10 +585,10 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="OfE-cs-qhS" firstAttribute="top" secondItem="mgr-gD-Zhc" secondAttribute="top" id="IH5-SO-RvW"/>
-                                                <constraint firstAttribute="bottom" secondItem="OfE-cs-qhS" secondAttribute="bottom" constant="5" id="OTI-id-9gS"/>
-                                                <constraint firstAttribute="trailing" secondItem="OfE-cs-qhS" secondAttribute="trailing" id="QdX-Fp-QQm"/>
-                                                <constraint firstItem="OfE-cs-qhS" firstAttribute="leading" secondItem="mgr-gD-Zhc" secondAttribute="leading" id="ZWX-Q4-idM"/>
+                                                <constraint firstItem="OfE-cs-qhS" firstAttribute="leading" secondItem="mgr-gD-Zhc" secondAttribute="leading" id="BtQ-ek-Eok"/>
+                                                <constraint firstItem="OfE-cs-qhS" firstAttribute="top" secondItem="mgr-gD-Zhc" secondAttribute="top" id="Pqc-g1-ZUF"/>
+                                                <constraint firstAttribute="trailing" secondItem="OfE-cs-qhS" secondAttribute="trailing" id="wPX-IC-n3P"/>
+                                                <constraint firstAttribute="bottom" secondItem="OfE-cs-qhS" secondAttribute="bottom" constant="5" id="xpW-DY-Fps"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <constraints>
