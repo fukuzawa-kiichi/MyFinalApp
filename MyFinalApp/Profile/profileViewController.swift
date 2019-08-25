@@ -34,17 +34,36 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         tableView.dataSource = self
         // ユーザーの情報をとってくる
         reload()
-        
-        let mailRef = db.collectionGroup("postData")
-        let query = mailRef.whereField("userProfEmail", isEqualTo: myEmail)
-        var userItems = [NSDictionary]()
-        userItems.append(query as NSDictionary)
-        
+        // サーバーからデータを取ってくる
+        fetch()
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
        reload()
         return
+    }
+    
+    // データの取得
+    func fetch() {
+        let mailRef = db.collection("postData")
+        let query = mailRef.whereField("userProfEmail", isEqualTo: "a@a.com")
+        query.getDocuments { (snapshot, error) in
+            if let error = error {
+                print("ProfileViewControllerにて情報取得失敗", error)
+                return
+            }
+            // 一時保管場所
+            var tempItem = [NSDictionary]()
+            // 全アイテム数回
+            for item in snapshot!.documents {
+                let dict = item.data()
+                tempItem.append(dict as NSDictionary)
+            }
+            self.items = tempItem
+            print("self.items.count:\(self.items.count)")
+            self.tableView.reloadData()
+        }
     }
     
     // ユーザーの情報をとってくる
@@ -65,21 +84,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         myEmail = profEmail!
     }
     
-    // データの取得
-    func fetch() {
-        // getで全件取得
-        db.collection("postData").getDocuments() {(querySnapshot, err) in
-            // 一時保管場所
-            var tempItem = [NSDictionary]()
-            // 全アイテム数回
-            for item in querySnapshot!.documents {
-                let dict = item.data()
-                tempItem.append(dict as NSDictionary)
-            }
-            self.items = tempItem
-            self.tableView.reloadData()
-        }
-    }
+    
     
     
     // セルの数
@@ -90,11 +95,22 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     // セルの設定
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath)
         // 選択不可にする
         cell.selectionStyle = .none
         
-        
+        // itemsの中からindexPathのrow番目の取得
+        let dict = items[indexPath.row]
+        // タピオカ画像
+        let postImageView = cell.viewWithTag(1) as! UIImageView
+        // 画像情報
+        let postImage = dict["postImage"]
+        //NSData型に変換
+        let dataPostImage = NSData(base64Encoded: postImage as! String, options: .ignoreUnknownCharacters)
+        // 更にUIImage型に変換
+        let  decadedPostImage = UIImage(data: dataPostImage! as Data)
+        // postImageViewに代入
+        postImageView.image = decadedPostImage
         
         return cell
     }
