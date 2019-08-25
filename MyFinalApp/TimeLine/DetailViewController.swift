@@ -89,7 +89,7 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
         // ice
         ice.text = ("甘さと氷の量 : \(String(describing: item["ice"] as! String))")
         // price
-        price.text = ("価格 : \(String(describing: item["price"] as! String))")
+        price.text = ("価格 : \(String(describing: item["price"] as! String))円")
         // place
         place.text = ("場所 : \(String(describing: item["place"] as! String))")
         // time

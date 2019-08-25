@@ -81,7 +81,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         vc.item = items[indexPath.row]
         // 遷移
         self.navigationController?.pushViewController(vc, animated: true)
-  // performSegue(withIdentifier: "gotoDetail", sender: nil)
     }
     
    
