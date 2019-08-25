@@ -182,6 +182,12 @@ class PostViewController: UIViewController {
         let top3 = p2TextField.text
         let top4 = p3TextField.text
         let top5 = p4TextField.text
+        // 甘さと氷
+        let ice = iceTextField.text
+        // 価格
+        let price = priceTextField.text
+        //待ち時間
+        let time = timeTextField.text
         
         // 投稿画像
         var postImageData: NSData = NSData()
@@ -191,7 +197,7 @@ class PostViewController: UIViewController {
         let base64PostImage = postImageData.base64EncodedString(options: .lineLength64Characters) as String
         
         // サーバーに飛ばす箱(辞書型)
-        let postData: NSDictionary = ["userProfName": userProfName, "userProfImage": userProfImage, "shopName": shopName ?? "", "place": place ?? "", "postImage": base64PostImage, "base": base ?? "", "top1": top1 ?? "", "top2": top2 ?? "", "top3": top3 ?? "", "top4": top4 ?? "", "top5": top5 ?? ""]
+        let postData: NSDictionary = ["userProfName": userProfName, "userProfImage": userProfImage, "shopName": shopName ?? "", "place": place ?? "", "postImage": base64PostImage, "base": base ?? "", "top1": top1 ?? "", "top2": top2 ?? "", "top3": top3 ?? "", "top4": top4 ?? "", "top5": top5 ?? "", "ice": ice ?? "", "price": price ?? "", "time": time ?? ""]
         // 辞書ごとFirestoreの"user"へpost
         db.collection("postData").addDocument(data: postData as! [String : Any])
         

@@ -1,39 +1,38 @@
 //
-//  ViewController.swift
+//  TableViewController.swift
 //  MyFinalApp
 //
-//  Created by VERTEX24 on 2019/08/19.
+//  Created by VERTEX24 on 2019/08/24.
 //  Copyright © 2019 VERTEX24. All rights reserved.
 //
 
 import UIKit
 import FirebaseFirestore
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    @IBOutlet weak var tableView: UITableView!
+class TableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
+    @IBOutlet var tableVIew: UITableView!
     
     // インスタンス化
     let db = Firestore.firestore()
     // refreshControlのインスタンス化
-    var refreshControl = UIRefreshControl()
-   
+   // private let refreshControl = UIRefreshControl()
+    
     // 投稿情報を入れる箱
     var items = [NSDictionary]()
-   
+    // 何番目の情報が押されたか入れるやつ
+    var selectName: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.delegate = self
-        tableView.dataSource = self
-        refreshControl.attributedTitle = NSAttributedString(string: "引っ張って更新")
+        tableView.refreshControl = refreshControl
+  //      refreshControl.attributedTitle = NSAttributedString(string: "引っ張って更新")
         // アクションを指定
-        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+    //    refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         // tableViewに追加
-        tableView.addSubview(refreshControl)
-        fetch()
-        
+      //  tableView.addSubview(refreshControl)
+        //fetch()
     }
 
     // データの取得
@@ -59,31 +58,33 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         fetch()
         tableView.reloadData()
         // リフレッシュを止める
-        refreshControl.endRefreshing()
+     //   refreshControl.endRefreshing()
     }
     
-    // セルの数
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // セルの数は投稿情報の数
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
         return items.count
     }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return 0
+    }
+
     
     // セルの何番目が押されたかを見るやつ
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let select = indexPath.row
+        // この関数の外に持ってくため代入
+        selectName = select
         // 画面遷移させるやつ
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "Detail") as! DetailViewController
-        vc.item = items[indexPath.row]
-        // 遷移
-        self.navigationController?.pushViewController(vc, animated: true)
-  // performSegue(withIdentifier: "gotoDetail", sender: nil)
+        performSegue(withIdentifier: "gotoDetail", sender: nil)
     }
     
-   
-    
-    // セルの設定
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+
         // 選択不可にする
         cell.selectionStyle = .none
         print(items.count)
@@ -122,20 +123,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         } else {
             // profileImageViewに代入
             userProfImage.image = #imageLiteral(resourceName: "人物アイコン")
-       
         }
-        
         // ユーザー名
         let userNameLabel = cell.viewWithTag(5) as! UILabel
         userNameLabel.text = dict["userProfName"] as? String
         
+
         return cell
     }
-    
+
     // セルの高さ
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 300
     }
-    
-
 }

@@ -10,6 +10,7 @@
 		940F856658DE407483D7A6DD /* Pods_MyFinalApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0319C1DEBD7259A8B78B03F7 /* Pods_MyFinalApp.framework */; };
 		C11A02C3230AD1D600F626BD /* Post.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C11A02C2230AD1D600F626BD /* Post.storyboard */; };
 		C11A02C5230AD1EA00F626BD /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11A02C4230AD1EA00F626BD /* PostViewController.swift */; };
+		C11CE2A92311326900994800 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11CE2A82311326900994800 /* DetailViewController.swift */; };
 		C13E514A230BE2240001500A /* Extension+ Scrollview.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13E5149230BE2240001500A /* Extension+ Scrollview.swift */; };
 		C13E514C230BE8CC0001500A /* Extension+ View.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13E514B230BE8CC0001500A /* Extension+ View.swift */; };
 		C13E514E230BE9460001500A /* Struct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13E514D230BE9460001500A /* Struct.swift */; };
@@ -33,6 +34,7 @@
 		6A7CB480EC590C2E12ED96F2 /* Pods-MyFinalApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFinalApp.release.xcconfig"; path = "Target Support Files/Pods-MyFinalApp/Pods-MyFinalApp.release.xcconfig"; sourceTree = "<group>"; };
 		C11A02C2230AD1D600F626BD /* Post.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Post.storyboard; sourceTree = "<group>"; };
 		C11A02C4230AD1EA00F626BD /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		C11CE2A82311326900994800 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C13E5149230BE2240001500A /* Extension+ Scrollview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+ Scrollview.swift"; sourceTree = "<group>"; };
 		C13E514B230BE8CC0001500A /* Extension+ View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+ View.swift"; sourceTree = "<group>"; };
 		C13E514D230BE9460001500A /* Struct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Struct.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 			children = (
 				C1519CCC230A711000C18C5C /* Main.storyboard */,
 				C1519CCA230A711000C18C5C /* ViewController.swift */,
+				C11CE2A82311326900994800 /* DetailViewController.swift */,
 			);
 			path = TimeLine;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				C11A02C5230AD1EA00F626BD /* PostViewController.swift in Sources */,
 				C155F002230A81B20058B65D /* LoginViewController.swift in Sources */,
 				C1519CCB230A711000C18C5C /* ViewController.swift in Sources */,
+				C11CE2A92311326900994800 /* DetailViewController.swift in Sources */,
 				C1CD24AE230D304700BD791D /* FixProfileViewController.swift in Sources */,
 				C13E514C230BE8CC0001500A /* Extension+ View.swift in Sources */,
 				C13E514A230BE2240001500A /* Extension+ Scrollview.swift in Sources */,
