@@ -73,6 +73,10 @@ class LoginViewController: UIViewController {
             } else {
                 // 認証成功
                 print("ログイン成功")
+                // ユーザーのメールアドレス情報をローカルに保存
+                let profEmailDefaults = UserDefaults.standard
+                profEmailDefaults.set(self.emailTextField.text, forKey: "emailKey")
+                print("email送信")
                 // タイムラインへ遷移
                 self.toTimeLine()
             }
@@ -93,6 +97,9 @@ class LoginViewController: UIViewController {
             } else {
                 // 認証成功
                 print("新規作成成功")
+                // ユーザーのメールアドレス情報をローカルに保存
+                let profEmailDefaults = UserDefaults.standard
+                profEmailDefaults.set(self.emailTextField.text, forKey: "emailKey")
                 // タイムラインへ遷移
                 self.toTimeLine()
             }

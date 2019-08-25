@@ -20,6 +20,8 @@ class PostViewController: UIViewController {
     var userProfName: String = ""
     // ユーザーの画像
     var userProfImage: String = ""
+    // ユーザーのemail
+    var userEmail: String = ""
     
     
     // すべてtユーザーに記入してもらう
@@ -69,6 +71,11 @@ class PostViewController: UIViewController {
         let profImageDefaults = UserDefaults.standard
         let profImage = profImageDefaults.string(forKey: "profImage")
         userProfImage = profImage!
+        // ユーザーのメアドを代入
+        let profEmailDefaults = UserDefaults.standard
+        let profEmail = profEmailDefaults.string(forKey: "emailKey")
+        userEmail = profEmail!
+        print("メアド受け取り")
         
         // トッピングのテキストと追加ボタンを隠しておく
         p1TextField.isHidden = true
@@ -197,9 +204,10 @@ class PostViewController: UIViewController {
         let base64PostImage = postImageData.base64EncodedString(options: .lineLength64Characters) as String
         
         // サーバーに飛ばす箱(辞書型)
-        let postData: NSDictionary = ["userProfName": userProfName, "userProfImage": userProfImage, "shopName": shopName ?? "", "place": place ?? "", "postImage": base64PostImage, "base": base ?? "", "top1": top1 ?? "", "top2": top2 ?? "", "top3": top3 ?? "", "top4": top4 ?? "", "top5": top5 ?? "", "ice": ice ?? "", "price": price ?? "", "time": time ?? ""]
-        // 辞書ごとFirestoreの"user"へpost
+        let postData: NSDictionary = ["userProfEmail": userEmail, "userProfName": userProfName, "userProfImage": userProfImage, "shopName": shopName ?? "", "place": place ?? "", "postImage": base64PostImage, "base": base ?? "", "top1": top1 ?? "", "top2": top2 ?? "", "top3": top3 ?? "", "top4": top4 ?? "", "top5": top5 ?? "", "ice": ice ?? "", "price": price ?? "", "time": time ?? ""]
+        // 辞書ごとFirestoreの"postData"へpost
         db.collection("postData").addDocument(data: postData as! [String : Any])
+        print("メアドサーバーへ")
         
         // 画面を消してタイムラインに戻る
         self.dismiss(animated: true)
