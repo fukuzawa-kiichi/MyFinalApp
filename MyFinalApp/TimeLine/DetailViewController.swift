@@ -13,6 +13,8 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     // 投稿情報を入れる箱
     var item = NSDictionary()
+    // 投稿情報のID
+    var itemID: String = ""
     // インスタンス化
     let db = Firestore.firestore()
     
@@ -42,6 +44,8 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
     // 時間
     @IBOutlet weak var time: UILabel!
     
+    // いいねボタン
+    @IBOutlet weak var goodButton: UIButton!
     
     
     override func viewDidLoad() {
@@ -51,6 +55,9 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
         top3.isHidden = true
         top4.isHidden = true
         top5.isHidden = true
+        
+        changeGoodButton()
+        
         
         // 店名
         shopName.title = item["shopName"] as? String
@@ -95,6 +102,57 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
         // time
         time.text = ("待ち時間 : \(String(describing: item["time"] as! String))分")
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        changeGoodButton()
+    }
+    
+    func changeGoodButton() {
+        // いいねボタンの色
+        if item["like"] as! String == "0" {
+            // いいねボタンの色
+            goodButton.setTitle("♡", for: .normal)
+            goodButton.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
+            
+        } else {
+            // いいねボタンの色
+            goodButton.setTitle("❤", for: .normal)
+            goodButton.setTitleColor(#colorLiteral(red: 1, green: 0.1301513699, blue: 0.7420222357, alpha: 1), for: .normal)
+        }
+    }
+    
+    // ユーザーの情報をとってくる
+    func reload() {
+        // ユーザーの"like"を取得
+        db.collection("postData").document(itemID).getDocument() {(querySnapshot, err) in
+            // 一時保管場所
+            var tempItem = [NSDictionary]()
+            // 全アイテム数回
+            for item in querySnapshot!.documentID {
+                let dict = item.customMirror
+        //        tempItem.append(dict as NSDictionary)
+            }
+          //  self.items = tempItem
+
+        }
+    }
+    
+    
+    @IBAction func likedPostButton(_ sender: Any) {
+        if item["like"] as! String == "0" {
+            // いいねボタンの色
+            goodButton.setTitle("❤", for: .normal)
+            goodButton.setTitleColor(#colorLiteral(red: 1, green: 0.1301513699, blue: 0.7420222357, alpha: 1), for: .normal)
+            db.collection("postData").document(itemID).updateData(["like": "1"])
+        } else if item["like"] as! String == "1" {
+            // いいねボタンの色
+            goodButton.setTitle("♡", for: .normal)
+            goodButton.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
+            db.collection("postData").document(itemID).updateData(["like": "0"])
+        }
+    }
+    
+    
     
     
 }

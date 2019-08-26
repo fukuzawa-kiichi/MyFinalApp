@@ -310,11 +310,27 @@
                                     <constraint firstAttribute="trailing" secondItem="xBL-zJ-fX4" secondAttribute="trailing" id="npQ-zX-Mez"/>
                                 </constraints>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KUB-Zi-CVj">
+                                <rect key="frame" x="314" y="713" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="e2W-p4-uPJ"/>
+                                    <constraint firstAttribute="width" secondItem="KUB-Zi-CVj" secondAttribute="height" multiplier="1:1" id="ljV-iY-uN8"/>
+                                </constraints>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="1" green="0.13015136990000001" blue="0.74202223570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="likedPostButton:" destination="yQl-BU-L2P" eventType="touchUpInside" id="09X-rs-jWB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="KcQ-uc-Rua" firstAttribute="leading" secondItem="sSq-jS-HgA" secondAttribute="leading" id="0nk-mU-ksH"/>
+                            <constraint firstItem="sSq-jS-HgA" firstAttribute="bottom" secondItem="KUB-Zi-CVj" secondAttribute="bottom" constant="50" id="bxh-0c-vbA"/>
+                            <constraint firstItem="sSq-jS-HgA" firstAttribute="trailing" secondItem="KUB-Zi-CVj" secondAttribute="trailing" constant="50" id="c5u-LN-pto"/>
                             <constraint firstItem="KcQ-uc-Rua" firstAttribute="top" secondItem="sSq-jS-HgA" secondAttribute="top" id="gCY-O4-MUI"/>
+                            <constraint firstItem="KUB-Zi-CVj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="sSq-jS-HgA" secondAttribute="leading" symbolic="YES" id="shc-O4-OrZ"/>
                             <constraint firstItem="sSq-jS-HgA" firstAttribute="bottom" secondItem="KcQ-uc-Rua" secondAttribute="bottom" id="twU-TL-tYK"/>
                             <constraint firstItem="KcQ-uc-Rua" firstAttribute="trailing" secondItem="sSq-jS-HgA" secondAttribute="trailing" id="z9r-3W-5di"/>
                         </constraints>
@@ -323,6 +339,7 @@
                     <navigationItem key="navigationItem" title="店名" id="rTd-O9-7Cd"/>
                     <connections>
                         <outlet property="base" destination="6j1-77-QlX" id="E0t-64-xL2"/>
+                        <outlet property="goodButton" destination="KUB-Zi-CVj" id="aPk-qX-KNu"/>
                         <outlet property="ice" destination="j9g-Oo-yO5" id="6Oh-Me-X5b"/>
                         <outlet property="place" destination="Fn6-wt-pX9" id="4Ml-cA-wnf"/>
                         <outlet property="postImage" destination="bbu-T0-TlY" id="2fh-cq-Jdl"/>

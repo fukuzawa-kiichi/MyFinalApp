@@ -20,6 +20,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
    
     // 投稿情報を入れる箱
     var items = [NSDictionary]()
+    // 全ドキュメントIDをもたせる箱
+    var allDocumentID: [String] = []
+    // ドキュメントIDをもたせる箱
+    var documentID: String = ""
    
     
     override func viewDidLoad() {
@@ -50,7 +54,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             // 全アイテム数回
             for item in querySnapshot!.documents {
                 let dict = item.data()
+                let document = item.documentID
                 tempItem.append(dict as NSDictionary)
+                self.allDocumentID.append(document)
             }
             self.items = tempItem
             self.tableView.reloadData()
@@ -61,6 +67,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @objc func refresh() {
         //初期化
         items = [NSDictionary]()
+        allDocumentID = []
         fetch()
         tableView.reloadData()
         // リフレッシュを止める
@@ -79,6 +86,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "Detail") as! DetailViewController
         vc.item = items[indexPath.row]
+        vc.itemID = allDocumentID[indexPath.row]
         // 遷移
         self.navigationController?.pushViewController(vc, animated: true)
     }

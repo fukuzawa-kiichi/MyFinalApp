@@ -203,8 +203,9 @@ class PostViewController: UIViewController {
         }
         let base64PostImage = postImageData.base64EncodedString(options: .lineLength64Characters) as String
         
+        
         // サーバーに飛ばす箱(辞書型)
-        let postData: NSDictionary = ["userProfEmail": userEmail, "userProfName": userProfName, "userProfImage": userProfImage, "shopName": shopName ?? "", "place": place ?? "", "postImage": base64PostImage, "base": base ?? "", "top1": top1 ?? "", "top2": top2 ?? "", "top3": top3 ?? "", "top4": top4 ?? "", "top5": top5 ?? "", "ice": ice ?? "", "price": price ?? "", "time": time ?? ""]
+        let postData: NSDictionary = ["userProfEmail": userEmail, "userProfName": userProfName, "userProfImage": userProfImage, "shopName": shopName ?? "", "place": place ?? "", "postImage": base64PostImage, "base": base ?? "", "top1": top1 ?? "", "top2": top2 ?? "", "top3": top3 ?? "", "top4": top4 ?? "", "top5": top5 ?? "", "ice": ice ?? "", "price": price ?? "", "time": time ?? "", "like": "0" ]
         // 辞書ごとFirestoreの"postData"へpost
         db.collection("postData").addDocument(data: postData as! [String : Any])
         print("メアドサーバーへ")
