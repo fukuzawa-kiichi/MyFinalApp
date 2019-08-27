@@ -423,11 +423,18 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NsQ-ze-ChL">
-                                                                    <rect key="frame" x="50" y="0.0" width="364" height="40"/>
+                                                                    <rect key="frame" x="50" y="0.0" width="314" height="40"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
+                                                                <button opaque="NO" tag="15" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akN-0G-VIZ">
+                                                                    <rect key="frame" x="374" y="0.0" width="40" height="40"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="akN-0G-VIZ" secondAttribute="height" multiplier="1:1" id="7L5-Mk-h8P"/>
+                                                                    </constraints>
+                                                                    <state key="normal" title="Button"/>
+                                                                </button>
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="q5E-zf-BOE"/>
@@ -613,35 +620,18 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zAQ-BJ-BJr">
-                                <rect key="frame" x="284" y="683" width="80" height="80"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="F3B-KP-kLg"/>
-                                    <constraint firstAttribute="width" secondItem="zAQ-BJ-BJr" secondAttribute="height" multiplier="1:1" id="Jgn-0m-Wu8"/>
-                                </constraints>
-                                <state key="normal" title="Button">
-                                    <color key="titleColor" red="1" green="0.13015136990000001" blue="0.74202223570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="likedBUtton:" destination="xFz-3Z-EeX" eventType="touchUpInside" id="2De-g6-LwU"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="odm-qW-gIz" firstAttribute="leading" secondItem="Fu2-bD-k9x" secondAttribute="leading" id="9Rk-0Y-jz1"/>
-                            <constraint firstItem="Fu2-bD-k9x" firstAttribute="trailing" secondItem="zAQ-BJ-BJr" secondAttribute="trailing" constant="50" id="IUj-JR-79u"/>
                             <constraint firstItem="odm-qW-gIz" firstAttribute="top" secondItem="Fu2-bD-k9x" secondAttribute="top" id="JQE-d8-D5t"/>
                             <constraint firstItem="Fu2-bD-k9x" firstAttribute="trailing" secondItem="odm-qW-gIz" secondAttribute="trailing" id="UeC-Vh-lpG"/>
-                            <constraint firstItem="zAQ-BJ-BJr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Fu2-bD-k9x" secondAttribute="leading" symbolic="YES" id="XeU-nO-Q8f"/>
                             <constraint firstItem="Fu2-bD-k9x" firstAttribute="bottom" secondItem="odm-qW-gIz" secondAttribute="bottom" id="m22-ML-D2V"/>
-                            <constraint firstItem="Fu2-bD-k9x" firstAttribute="bottom" secondItem="zAQ-BJ-BJr" secondAttribute="bottom" constant="50" id="qw5-sF-fa3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Fu2-bD-k9x"/>
                     </view>
                     <tabBarItem key="tabBarItem" tag="3" title="LikedPost" id="pWR-Ce-dge" userLabel="LikedPost"/>
                     <connections>
-                        <outlet property="goodButton" destination="zAQ-BJ-BJr" id="FfI-9d-POa"/>
                         <outlet property="tableView" destination="odm-qW-gIz" id="cb9-Fh-mUH"/>
                     </connections>
                 </viewController>

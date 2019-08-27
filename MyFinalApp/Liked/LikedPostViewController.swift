@@ -29,8 +29,7 @@ class LikedPostViewController: UIViewController, UITableViewDataSource, UITableV
     var itemsListener: ListenerRegistration?
     // tableView
     @IBOutlet weak var tableView: UITableView!
-    // 行きたいボタン
-    @IBOutlet weak var goodButton: UIButton!
+    
     
     
     
@@ -39,7 +38,7 @@ class LikedPostViewController: UIViewController, UITableViewDataSource, UITableV
         
         tableView.delegate = self
         tableView.dataSource = self
-        goodButton.isHidden = true
+        
         
         
         
@@ -56,13 +55,13 @@ class LikedPostViewController: UIViewController, UITableViewDataSource, UITableV
     
     override func viewWillAppear(_ animated: Bool) {
         // 監視開始
-        startLiseningForItems()
+     //   startLiseningForItems()
         fetch()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         // 監視終了
-        stopListeningForItems()
+    //    stopListeningForItems()
         items = [NSDictionary]()
         allDocumentID = []
         documentID = ""
@@ -70,7 +69,7 @@ class LikedPostViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     // ユーザーの情報をとってくる
-    func startLiseningForItems() {
+ /*   func startLiseningForItems() {
         itemsListener = db.collection("postData").document(documentID).addSnapshotListener ({ (snapshot, error) in
             if let error = error {
                 print("データ取得失敗: ", error)
@@ -90,6 +89,7 @@ class LikedPostViewController: UIViewController, UITableViewDataSource, UITableV
         itemsListener?.remove()
         itemsListener = nil
     }
+ */
     // データの取得
     func fetch() {
         let mailRef = db.collection("postData")
@@ -229,6 +229,12 @@ class LikedPostViewController: UIViewController, UITableViewDataSource, UITableV
         let timeLabel = cell.viewWithTag(14) as! UILabel
         timeLabel.text = ("待ち時間 : \(String(describing: dict["time"] as! String))分")
         
+        // 行きたいボタン
+        let goodButton = cell.viewWithTag(15) as! UIButton
+        // いいねボタンの色
+        goodButton.setTitle("❤", for: .normal)
+        goodButton.setTitleColor(#colorLiteral(red: 1, green: 0.1301513699, blue: 0.7420222357, alpha: 1), for: .normal)
+        
         return cell
     }
     
@@ -240,7 +246,7 @@ class LikedPostViewController: UIViewController, UITableViewDataSource, UITableV
     
     
     
-    @IBAction func likedBUtton(_ sender: Any) {
+  /*  @IBAction func likedBUtton(_ sender: Any) {
         if item["like"] as! String == "0" {
             // firebase更新
             db.collection("postData").document(documentID).updateData(["like": "1"])
@@ -256,7 +262,7 @@ class LikedPostViewController: UIViewController, UITableViewDataSource, UITableV
             goodButton.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
         }
         
-    }
+ }*/
     
     
 }
