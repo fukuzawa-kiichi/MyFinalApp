@@ -112,6 +112,9 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
     override func viewDidDisappear(_ animated: Bool) {
         // 監視終了
         stopListeningForItem()
+        // 初期化
+        item = NSDictionary()
+        itemID = ""
     }
     
     
@@ -143,8 +146,8 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
             self.item = NSDictionary()
             self.item = snapShot.data()! as NSDictionary
         })
-
-        }
+        
+    }
     
     private func stopListeningForItem() {
         itemListener?.remove()
@@ -153,20 +156,22 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     
     @IBAction func likedPostButton(_ sender: Any) {
-        if item["like"] as! String == "0" {
-            // firebase更新
-            db.collection("postData").document(itemID).updateData(["like": "1"])
-            
-            // いいねボタンの色
-            goodButton.setTitle("❤", for: .normal)
-            goodButton.setTitleColor(#colorLiteral(red: 1, green: 0.1301513699, blue: 0.7420222357, alpha: 1), for: .normal)
-            
-        } else if item["like"] as! String == "1" {
-            db.collection("postData").document(itemID).updateData(["like": "0"])
-            // いいねボタンの色
-            goodButton.setTitle("♡", for: .normal)
-            goodButton.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
-        }
+        UIView.animate(withDuration: 0.5, animations: {
+            if self.item["like"] as! String == "0" {
+                // firebase更新
+                self.db.collection("postData").document(self.itemID).updateData(["like": "1"])
+                
+                // いいねボタンの色
+                self.goodButton.setTitle("❤", for: .normal)
+                self.goodButton.setTitleColor(#colorLiteral(red: 1, green: 0.1301513699, blue: 0.7420222357, alpha: 1), for: .normal)
+                
+            } else if self.item["like"] as! String == "1" {
+                self.db.collection("postData").document(self.itemID).updateData(["like": "0"])
+                // いいねボタンの色
+                self.goodButton.setTitle("♡", for: .normal)
+                self.goodButton.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
+            }
+        })
     }
     
     

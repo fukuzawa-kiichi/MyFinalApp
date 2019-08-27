@@ -168,7 +168,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     // セルの高さ
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 600
+        return 650
         
     }
     
