@@ -71,7 +71,7 @@ class LikedPostViewController: UIViewController, UITableViewDataSource, UITableV
     
     // ユーザーの情報をとってくる
     func startLiseningForItems() {
-        itemsListener = db.collection("postData").addSnapshotListener ({ (snapshot, error) in
+        itemsListener = db.collection("postData").document(documentID).addSnapshotListener ({ (snapshot, error) in
             if let error = error {
                 print("データ取得失敗: ", error)
                 return
@@ -80,25 +80,16 @@ class LikedPostViewController: UIViewController, UITableViewDataSource, UITableV
                 print("error: \(error!)")
                 return
             }
-            // 一時保管場所
-            var tempItem = [NSDictionary]()
-            for item in snapShot.documents {
-                let dict = item.data()
-                let document = item.documentID
-                tempItem.append(dict as NSDictionary)
-                self.allDocumentID.append(document)
-            }
-            self.items = tempItem
-           
+            self.item = NSDictionary()
+            self.item = snapShot.data()! as NSDictionary
         })
-         self.tableView.reloadData()
+        
     }
     
     private func stopListeningForItems() {
         itemsListener?.remove()
         itemsListener = nil
     }
-    
     // データの取得
     func fetch() {
         let mailRef = db.collection("postData")
@@ -116,8 +107,9 @@ class LikedPostViewController: UIViewController, UITableViewDataSource, UITableV
                 tempItem.append(dict as NSDictionary)
             }
             self.items = tempItem
+            print("self.items.count:\(self.items.count)")
+            self.tableView.reloadData()
         }
-        self.tableView.reloadData()
     }
     
     // 更新
@@ -149,7 +141,7 @@ class LikedPostViewController: UIViewController, UITableViewDataSource, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "LikedCell", for: indexPath)
         // 選択不可にする
         cell.selectionStyle = .none
-        print(items.count)
+        print("items.count: \(items.count)")
         
         // itemsの中からindexPathのrow番目の取得
         let dict = items[indexPath.row]
@@ -263,7 +255,7 @@ class LikedPostViewController: UIViewController, UITableViewDataSource, UITableV
             goodButton.setTitle("♡", for: .normal)
             goodButton.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
         }
-
+        
     }
     
     
