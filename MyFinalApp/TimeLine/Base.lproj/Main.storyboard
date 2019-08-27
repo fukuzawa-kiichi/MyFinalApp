@@ -375,7 +375,7 @@
             </objects>
             <point key="canvasLocation" x="-699" y="-1118"/>
         </scene>
-        <!--New-->
+        <!--New View Controller-->
         <scene sceneID="fB7-KA-P68">
             <objects>
                 <viewController storyboardIdentifier="New" id="sNr-P7-7Ia" customClass="NewViewController" customModule="MyFinalApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -385,7 +385,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="V1L-sU-mcK"/>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="2" title="New" id="f6R-JY-Ua8"/>
+                    <tabBarItem key="tabBarItem" tag="2" title="" image="投稿ボタン" id="f6R-JY-Ua8">
+                        <inset key="imageInsets" minX="0.0" minY="60" maxX="0.0" maxY="50"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TSi-yE-JGg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -648,7 +650,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0ou-WR-sPX">
-                                <rect key="frame" x="0.0" y="256.5" width="414" height="639.5"/>
+                                <rect key="frame" x="0.0" y="238.5" width="414" height="657.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyCell" rowHeight="692" id="FnX-gh-tgZ">
@@ -848,26 +850,27 @@
                                 <sections/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RU2-Gk-bgv">
-                                <rect key="frame" x="75" y="226.5" width="264" height="30"/>
+                                <rect key="frame" x="75" y="208.5" width="264" height="30"/>
                                 <state key="normal" title="プロフィールを編集する"/>
                                 <connections>
                                     <segue destination="U0A-Mc-hzq" kind="show" id="tZD-Ie-s4l"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="wHJ-rI-mge">
-                                <rect key="frame" x="0.0" y="88" width="414" height="138.5"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="120.5"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4s2-qN-hku">
-                                        <rect key="frame" x="0.0" y="0.0" width="118" height="138.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4s2-qN-hku">
+                                        <rect key="frame" x="0.0" y="0.0" width="118" height="120.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xwD-Rz-vs5">
-                                                <rect key="frame" x="0.0" y="0.0" width="118" height="118"/>
+                                                <rect key="frame" x="9" y="0.0" width="100" height="100"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="xwD-Rz-vs5" secondAttribute="height" multiplier="1:1" id="939-Av-0IC"/>
+                                                    <constraint firstAttribute="width" constant="100" id="9aR-mY-7Mo"/>
+                                                    <constraint firstAttribute="height" constant="100" id="Ch6-O5-Pqo"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" ゲスト" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8v-5G-G2h">
-                                                <rect key="frame" x="0.0" y="118" width="118" height="20.5"/>
+                                                <rect key="frame" x="31" y="100" width="56.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -875,16 +878,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gun-eE-A8L">
-                                        <rect key="frame" x="148" y="0.0" width="118" height="138.5"/>
+                                        <rect key="frame" x="148" y="0.0" width="118" height="120.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xE6-KG-ihK">
-                                                <rect key="frame" x="0.0" y="0.0" width="118" height="69.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="118" height="60.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="フォロー中" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4D-f6-CNA">
-                                                <rect key="frame" x="0.0" y="69.5" width="118" height="69"/>
+                                                <rect key="frame" x="0.0" y="60.5" width="118" height="60"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -892,16 +895,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="4JW-ZU-njb">
-                                        <rect key="frame" x="296" y="0.0" width="118" height="138.5"/>
+                                        <rect key="frame" x="296" y="0.0" width="118" height="120.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uKe-KV-ZY8">
-                                                <rect key="frame" x="0.0" y="0.0" width="118" height="69.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="118" height="60.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="行きたいお店" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h9p-km-86Q">
-                                                <rect key="frame" x="0.0" y="69.5" width="118" height="69"/>
+                                                <rect key="frame" x="0.0" y="60.5" width="118" height="60"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -938,7 +941,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vdn-FJ-0UK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="371.25" y="1567.605633802817"/>
+            <point key="canvasLocation" x="371.01449275362324" y="1566.9642857142856"/>
         </scene>
         <!--Fix Profile View Controller-->
         <scene sceneID="Xpb-p5-pI0">
@@ -1016,7 +1019,7 @@
         <scene sceneID="52V-S1-GEM">
             <objects>
                 <navigationController storyboardIdentifier="Navigation" automaticallyAdjustsScrollViewInsets="NO" id="Bu5-K0-vej" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="4" title="MyPage" id="Pxg-uW-6aJ"/>
+                    <tabBarItem key="tabBarItem" tag="4" title="MyPage" id="Pxg-uW-6aJ" customClass="userProfImage" customModule="MyFinalApp" customModuleProvider="target"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hKB-eC-hwk">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -1035,7 +1038,9 @@
         <scene sceneID="2M0-xu-HLu">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oR9-RS-vqu" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="HOME" id="p9Z-e2-2aG"/>
+                    <tabBarItem key="tabBarItem" title="HOME" image="ホームボタン" id="p9Z-e2-2aG">
+                        <inset key="imageInsets" minX="0.0" minY="55" maxX="0.0" maxY="55"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GvK-DV-W66">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -1051,4 +1056,8 @@
             <point key="canvasLocation" x="-699.375" y="-2188.7323943661972"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ホームボタン" width="256" height="256"/>
+        <image name="投稿ボタン" width="256" height="256"/>
+    </resources>
 </document>
