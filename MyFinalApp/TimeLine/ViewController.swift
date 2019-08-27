@@ -24,6 +24,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var allDocumentID: [String] = []
     // ドキュメントIDをもたせる箱
     var documentID: String = ""
+    
+    // 投稿の中身を監視する
+    var itemsListener: ListenerRegistration?
    
     
     override func viewDidLoad() {
@@ -44,6 +47,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         fetch()
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // 監視開始
+        startLiseningForItems()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        // 監視終了
+        stopListeningForItems()
+    }
 
     // データの取得
     func fetch() {
@@ -61,6 +74,34 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             self.items = tempItem
             self.tableView.reloadData()
         }
+    }
+    
+    // ユーザーの情報をとってくる
+    func startLiseningForItems() {
+        itemsListener = db.collection("postData").addSnapshotListener ({ (snapshot, error) in
+            if let error = error {
+                print("データ取得失敗: ", error)
+                return
+            }
+            guard let snapShot = snapshot else {
+                print("error: \(error!)")
+                return
+            }
+            // 一時保管場所
+            var tempItem = [NSDictionary]()
+            for item in snapShot.documents {
+                let dict = item.data()
+                tempItem.append(dict as NSDictionary)
+            }
+            self.items = tempItem
+            self.tableView.reloadData()
+        })
+        
+    }
+    
+    private func stopListeningForItems() {
+        itemsListener?.remove()
+        itemsListener = nil
     }
     
     // 更新

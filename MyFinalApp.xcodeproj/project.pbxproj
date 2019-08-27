@@ -16,6 +16,7 @@
 		C13E514E230BE9460001500A /* Struct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13E514D230BE9460001500A /* Struct.swift */; };
 		C13F71AD230EA602002429CA /* NewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13F71AC230EA602002429CA /* NewViewController.swift */; };
 		C1431FE7230FC759001B34E9 /* ChengeStringFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1431FE6230FC759001B34E9 /* ChengeStringFunc.swift */; };
+		C14AFACD23151AEE005BF832 /* LikedPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14AFACC23151AEE005BF832 /* LikedPostViewController.swift */; };
 		C1519CC9230A711000C18C5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1519CC8230A711000C18C5C /* AppDelegate.swift */; };
 		C1519CCB230A711000C18C5C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1519CCA230A711000C18C5C /* ViewController.swift */; };
 		C1519CCE230A711000C18C5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1519CCC230A711000C18C5C /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 		C13E514D230BE9460001500A /* Struct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Struct.swift; sourceTree = "<group>"; };
 		C13F71AC230EA602002429CA /* NewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewViewController.swift; sourceTree = "<group>"; };
 		C1431FE6230FC759001B34E9 /* ChengeStringFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChengeStringFunc.swift; sourceTree = "<group>"; };
+		C14AFACC23151AEE005BF832 /* LikedPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedPostViewController.swift; sourceTree = "<group>"; };
 		C1519CC5230A711000C18C5C /* MyFinalApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFinalApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1519CC8230A711000C18C5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1519CCA230A711000C18C5C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +100,14 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		C14AFACB23151A99005BF832 /* Liked */ = {
+			isa = PBXGroup;
+			children = (
+				C14AFACC23151AEE005BF832 /* LikedPostViewController.swift */,
+			);
+			path = Liked;
+			sourceTree = "<group>";
+		};
 		C1519CBC230A711000C18C5C = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				C1519CC8230A711000C18C5C /* AppDelegate.swift */,
+				C14AFACB23151A99005BF832 /* Liked */,
 				C1DA7E06230A9637004E185E /* TimeLine */,
 				C155EFFE230A81540058B65D /* Login */,
 				C11A02C1230AD17600F626BD /* Post */,
@@ -282,6 +293,7 @@
 				C1519CCB230A711000C18C5C /* ViewController.swift in Sources */,
 				C11CE2A92311326900994800 /* DetailViewController.swift in Sources */,
 				C1CD24AE230D304700BD791D /* FixProfileViewController.swift in Sources */,
+				C14AFACD23151AEE005BF832 /* LikedPostViewController.swift in Sources */,
 				C13E514C230BE8CC0001500A /* Extension+ View.swift in Sources */,
 				C13E514A230BE2240001500A /* Extension+ Scrollview.swift in Sources */,
 				C13E514E230BE9460001500A /* Struct.swift in Sources */,

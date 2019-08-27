@@ -18,6 +18,9 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
     // インスタンス化
     let db = Firestore.firestore()
     
+    // 配列の中身を監視する
+    var itemListener: ListenerRegistration?
+    
     
     // 店名
     @IBOutlet weak var shopName: UINavigationItem!
@@ -101,11 +104,16 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
         place.text = ("場所 : \(String(describing: item["place"] as! String))")
         // time
         time.text = ("待ち時間 : \(String(describing: item["time"] as! String))分")
+        
+        // 監視スタート
+        startLiseningForItem()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        changeGoodButton()
+    override func viewDidDisappear(_ animated: Bool) {
+        // 監視終了
+        stopListeningForItem()
     }
+    
     
     func changeGoodButton() {
         // いいねボタンの色
@@ -122,33 +130,42 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     // ユーザーの情報をとってくる
-    func reload() {
-        // ユーザーの"like"を取得
-        db.collection("postData").document(itemID).getDocument() {(querySnapshot, err) in
-            // 一時保管場所
-            var tempItem = [NSDictionary]()
-            // 全アイテム数回
-            for item in querySnapshot!.documentID {
-                let dict = item.customMirror
-        //        tempItem.append(dict as NSDictionary)
+    func startLiseningForItem() {
+        itemListener = db.collection("postData").document(itemID).addSnapshotListener ({ (snapshot, error) in
+            if let error = error {
+                print("データ取得失敗: ", error)
+                return
             }
-          //  self.items = tempItem
+            guard let snapShot = snapshot else {
+                print("error: \(error!)")
+                return
+            }
+            self.item = NSDictionary()
+            self.item = snapShot.data()! as NSDictionary
+        })
 
         }
+    
+    private func stopListeningForItem() {
+        itemListener?.remove()
+        itemListener = nil
     }
     
     
     @IBAction func likedPostButton(_ sender: Any) {
         if item["like"] as! String == "0" {
+            // firebase更新
+            db.collection("postData").document(itemID).updateData(["like": "1"])
+            
             // いいねボタンの色
             goodButton.setTitle("❤", for: .normal)
             goodButton.setTitleColor(#colorLiteral(red: 1, green: 0.1301513699, blue: 0.7420222357, alpha: 1), for: .normal)
-            db.collection("postData").document(itemID).updateData(["like": "1"])
+            
         } else if item["like"] as! String == "1" {
+            db.collection("postData").document(itemID).updateData(["like": "0"])
             // いいねボタンの色
             goodButton.setTitle("♡", for: .normal)
             goodButton.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
-            db.collection("postData").document(itemID).updateData(["like": "0"])
         }
     }
     
