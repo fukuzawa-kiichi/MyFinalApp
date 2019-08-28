@@ -34,9 +34,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         tableView.dataSource = self
         
         // 角を丸くする
-        self.userProfImage.layer.cornerRadius = 100 * 0.5
-        self.userProfImage.clipsToBounds = true
-        self.view.addSubview(self.userProfImage)
+//        self.userProfImage.layer.cornerRadius = 100 * 0.5
+//        self.userProfImage.clipsToBounds = true
+//        userProfImage.center = CGPoint(x: 0, y: 100)
+//        self.view.addSubview(self.userProfImage)
         // ユーザーの情報をとってくる
         reload()
         // サーバーからデータを取ってくる

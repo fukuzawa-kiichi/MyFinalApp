@@ -28,7 +28,7 @@ class LikedPostViewController: UIViewController, UITableViewDataSource, UITableV
     // 投稿の中身を監視する
     var itemsListener: ListenerRegistration?
     // tableView
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var likeTableView: UITableView!
     
     
     
@@ -36,8 +36,8 @@ class LikedPostViewController: UIViewController, UITableViewDataSource, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.delegate = self
-        tableView.dataSource = self
+        likeTableView.delegate = self
+        likeTableView.dataSource = self
         
         
         
@@ -46,7 +46,7 @@ class LikedPostViewController: UIViewController, UITableViewDataSource, UITableV
         // アクションを指定
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         // tableViewに追加
-        tableView.addSubview(refreshControl)
+        likeTableView.addSubview(refreshControl)
         fetch()
         
     }
@@ -104,11 +104,13 @@ class LikedPostViewController: UIViewController, UITableViewDataSource, UITableV
             // 全アイテム数回
             for item in snapshot!.documents {
                 let dict = item.data()
+                let document = item.documentID
                 tempItem.append(dict as NSDictionary)
+                self.allDocumentID.append(document)
             }
             self.items = tempItem
             print("self.items.count:\(self.items.count)")
-            self.tableView.reloadData()
+            self.likeTableView.reloadData()
         }
     }
     
@@ -117,7 +119,7 @@ class LikedPostViewController: UIViewController, UITableViewDataSource, UITableV
         //初期化
         items = [NSDictionary]()
         fetch()
-        tableView.reloadData()
+        likeTableView.reloadData()
         // リフレッシュを止める
         refreshControl.endRefreshing()
     }
@@ -130,8 +132,10 @@ class LikedPostViewController: UIViewController, UITableViewDataSource, UITableV
     
     // セルの何番目が押されたかを見るやつ
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        item = items[indexPath.row]
-        documentID = allDocumentID[indexPath.row]
+      //  item = items[indexPath.row]
+        print("item = \(item)")
+    //    documentID = allDocumentID[indexPath.row]
+        print("documentID = \(documentID)")
     }
     
     
@@ -246,7 +250,21 @@ class LikedPostViewController: UIViewController, UITableViewDataSource, UITableV
     
     
     
-  /*  @IBAction func likedBUtton(_ sender: Any) {
+    @IBAction func likedBUtton(_ sender: UIButton) {
+        // 選択されたボタンの座標位置を取得し
+        let point = likeTableView.convert(sender.center, from: sender)
+        print("point:\(point)")
+        // Tableviewの座標へ変換して該当のindexPathを取得
+        guard let indexPath: IndexPath = likeTableView.indexPathForRow(at: point) else {
+            print("ボタン情報の取得失敗")
+            return
+        }
+        item = items[indexPath.row]
+        documentID = allDocumentID[indexPath.row]
+        
+        let cell = likeTableView.dequeueReusableCell(withIdentifier: "LikedCell", for: indexPath)
+        let goodButton = cell.viewWithTag(15) as! UIButton
+        
         if item["like"] as! String == "0" {
             // firebase更新
             db.collection("postData").document(documentID).updateData(["like": "1"])
@@ -262,7 +280,7 @@ class LikedPostViewController: UIViewController, UITableViewDataSource, UITableV
             goodButton.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
         }
         
- }*/
+    }
     
     
 }

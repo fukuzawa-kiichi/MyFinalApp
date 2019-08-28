@@ -3,6 +3,20 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "LikedPostViewController.likedBUtton(_:):LikedPostViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.tableView.indexPathForRow(at: point)">
+            </PersistentString>
+            <PersistentString
+               value = "items[indexPath.row]&#10;">
+            </PersistentString>
+            <PersistentString
+               value = "item">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "ViewController.tableView(_:numberOfRowsInSection:):ViewController.swift">
          <PersistentStrings>
             <PersistentString
