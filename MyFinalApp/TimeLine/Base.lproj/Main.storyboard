@@ -80,7 +80,7 @@
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Y4U-Ih-X0a">
                                                                     <rect key="frame" x="0.0" y="20" width="414" height="40"/>
                                                                     <subviews>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kXn-gZ-08N">
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kXn-gZ-08N">
                                                                             <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="40" id="Aic-iG-R68"/>
@@ -162,7 +162,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3i3-uc-C2d">
                                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                                                 <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DhL-vd-2EU">
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DhL-vd-2EU">
                                                                         <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="60" id="1KS-eM-di3"/>
@@ -657,7 +657,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Fu2-bD-k9x"/>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="3" title="LikedPost" id="pWR-Ce-dge" userLabel="LikedPost"/>
+                    <tabBarItem key="tabBarItem" tag="3" title="LikedPost" image="ハートのマーク" id="pWR-Ce-dge" userLabel="LikedPost"/>
                     <connections>
                         <outlet property="likeTableView" destination="odm-qW-gIz" id="gA9-vS-hTl"/>
                     </connections>
@@ -885,10 +885,10 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="120.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4s2-qN-hku">
-                                        <rect key="frame" x="0.0" y="0.0" width="118" height="120.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="192" height="120.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xwD-Rz-vs5">
-                                                <rect key="frame" x="9" y="0.0" width="100" height="100"/>
+                                                <rect key="frame" x="46" y="0.0" width="100" height="100"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="9aR-mY-7Mo"/>
                                                     <constraint firstAttribute="height" constant="100" id="Ch6-O5-Pqo"/>
@@ -901,41 +901,24 @@
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" ゲスト" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8v-5G-G2h">
-                                                <rect key="frame" x="31" y="100" width="56.5" height="20.5"/>
+                                                <rect key="frame" x="68" y="100" width="56.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gun-eE-A8L">
-                                        <rect key="frame" x="148" y="0.0" width="118" height="120.5"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xE6-KG-ihK">
-                                                <rect key="frame" x="0.0" y="0.0" width="118" height="60.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="フォロー中" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4D-f6-CNA">
-                                                <rect key="frame" x="0.0" y="60.5" width="118" height="60"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="4JW-ZU-njb">
-                                        <rect key="frame" x="296" y="0.0" width="118" height="120.5"/>
+                                        <rect key="frame" x="222" y="0.0" width="192" height="120.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uKe-KV-ZY8">
-                                                <rect key="frame" x="0.0" y="0.0" width="118" height="60.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="192" height="60.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="行きたいお店" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h9p-km-86Q">
-                                                <rect key="frame" x="0.0" y="60.5" width="118" height="60"/>
+                                                <rect key="frame" x="0.0" y="60.5" width="192" height="60"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -1087,7 +1070,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ホームボタン" width="512" height="512"/>
-        <image name="投稿ボタン" width="89" height="89"/>
+        <image name="ハートのマーク" width="28" height="28"/>
+        <image name="ホームボタン" width="41" height="41"/>
+        <image name="投稿ボタン" width="30" height="30"/>
     </resources>
 </document>

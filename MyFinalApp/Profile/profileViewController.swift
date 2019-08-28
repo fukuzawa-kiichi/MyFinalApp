@@ -15,6 +15,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     // 投稿情報を全て格納
     var items = [NSDictionary]()
+    // いいね投稿のすべてを入れる箱
+    var goodItem = [NSDictionary]()
+    
     // インスタンス化
     let db = Firestore.firestore()
     
@@ -59,6 +62,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 print("ProfileViewControllerにて情報取得失敗", error)
                 return
             }
+        
             // 一時保管場所
             var tempItem = [NSDictionary]()
             // 全アイテム数回
@@ -69,6 +73,24 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             self.items = tempItem
             print("self.items.count:\(self.items.count)")
             self.tableView.reloadData()
+        }
+        
+        let mailRefs = db.collection("postData")
+        let querys = mailRefs.whereField("like", isEqualTo: "1")
+        querys.getDocuments { (snapshots, errors) in
+            if let errors = errors {
+                print("ProfileViewControllerにて情報取得失敗", errors)
+                return
+            }
+            // 一時保管場所
+            var tempItems = [NSDictionary]()
+            // 全アイテム数回
+            for items in snapshots!.documents {
+                let dicts = items.data()
+                tempItems.append(dicts as NSDictionary)
+            }
+            self.goodItem = tempItems
+            
         }
     }
     
