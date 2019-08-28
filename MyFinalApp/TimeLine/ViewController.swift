@@ -51,11 +51,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewWillAppear(_ animated: Bool) {
         // 監視開始
         startLiseningForItems()
+        fetch()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         // 監視終了
         stopListeningForItems()
+        items = [NSDictionary]()
+        allDocumentID = []
     }
 
     // データの取得
@@ -126,6 +129,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // 画面遷移させるやつ
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "Detail") as! DetailViewController
+        print("indexPath.row: \(indexPath.row)")
         vc.item = items[indexPath.row]
         vc.itemID = allDocumentID[indexPath.row]
         // 遷移
