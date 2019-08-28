@@ -57,8 +57,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidDisappear(_ animated: Bool) {
         // 監視終了
         stopListeningForItems()
-        items = [NSDictionary]()
-        allDocumentID = []
+   //     items = [NSDictionary]()
+    //    allDocumentID = []
     }
 
     // データの取得

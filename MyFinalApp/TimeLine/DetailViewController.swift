@@ -109,8 +109,6 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
         startLiseningForItem()
     }
     
-    
-    
     override func viewDidDisappear(_ animated: Bool) {
         // 監視終了
         stopListeningForItem()
