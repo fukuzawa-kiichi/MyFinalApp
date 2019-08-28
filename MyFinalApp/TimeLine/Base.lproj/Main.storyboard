@@ -51,7 +51,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="KUS-NK-Ebj">
-                                                    <rect key="frame" x="0.0" y="10" width="414" height="412.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="432.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDo-hl-9YQ">
                                                             <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
@@ -63,10 +63,10 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HJd-uP-6hq">
-                                                            <rect key="frame" x="0.0" y="40" width="414" height="302.5"/>
+                                                            <rect key="frame" x="0.0" y="40" width="414" height="322.5"/>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="rZE-RB-QaL">
-                                                            <rect key="frame" x="0.0" y="352.5" width="414" height="60"/>
+                                                            <rect key="frame" x="0.0" y="372.5" width="414" height="60"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vux-My-fDm">
                                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="20"/>
@@ -110,8 +110,8 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="KUS-NK-Ebj" secondAttribute="bottom" constant="10" id="K5E-u6-5G4"/>
-                                                <constraint firstItem="KUS-NK-Ebj" firstAttribute="top" secondItem="lSu-7C-tYG" secondAttribute="top" constant="10" id="Lbz-Rv-fD6"/>
+                                                <constraint firstAttribute="bottom" secondItem="KUS-NK-Ebj" secondAttribute="bottom" id="K5E-u6-5G4"/>
+                                                <constraint firstItem="KUS-NK-Ebj" firstAttribute="top" secondItem="lSu-7C-tYG" secondAttribute="top" id="Lbz-Rv-fD6"/>
                                                 <constraint firstAttribute="trailing" secondItem="KUS-NK-Ebj" secondAttribute="trailing" id="Sxg-yj-sMq"/>
                                                 <constraint firstItem="KUS-NK-Ebj" firstAttribute="leading" secondItem="lSu-7C-tYG" secondAttribute="leading" id="cWe-zG-xJg"/>
                                             </constraints>

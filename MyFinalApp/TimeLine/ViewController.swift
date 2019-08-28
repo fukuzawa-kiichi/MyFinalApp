@@ -67,13 +67,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         db.collection("postData").getDocuments() {(querySnapshot, err) in
             // 一時保管場所
             var tempItem = [NSDictionary]()
+            var tempID: [String] = []
             // 全アイテム数回
             for item in querySnapshot!.documents {
                 let dict = item.data()
                 let document = item.documentID
                 tempItem.append(dict as NSDictionary)
-                self.allDocumentID.append(document)
+                tempID.append(document)
             }
+            self.allDocumentID = tempID
+            print("allDocumentID: \(self.allDocumentID)")
             self.items = tempItem
             self.tableView.reloadData()
         }
@@ -131,6 +134,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let vc = storyboard.instantiateViewController(withIdentifier: "Detail") as! DetailViewController
         print("indexPath.row: \(indexPath.row)")
         vc.item = items[indexPath.row]
+        print("allDocumentID[indexPath.row] \(allDocumentID[indexPath.row])")
         vc.itemID = allDocumentID[indexPath.row]
         // 遷移
         self.navigationController?.pushViewController(vc, animated: true)

@@ -54,14 +54,13 @@ class LikedPostViewController: UIViewController, UITableViewDataSource, UITableV
     
     
     override func viewWillAppear(_ animated: Bool) {
-        // 監視開始
-     //   startLiseningForItems()
+       
         fetch()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         // 監視終了
-    //    stopListeningForItems()
+        stopListeningForItems()
         items = [NSDictionary]()
         allDocumentID = []
         documentID = ""
@@ -69,7 +68,7 @@ class LikedPostViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     // ユーザーの情報をとってくる
- /*   func startLiseningForItems() {
+    func startLiseningForItems() {
         itemsListener = db.collection("postData").document(documentID).addSnapshotListener ({ (snapshot, error) in
             if let error = error {
                 print("データ取得失敗: ", error)
@@ -89,7 +88,7 @@ class LikedPostViewController: UIViewController, UITableViewDataSource, UITableV
         itemsListener?.remove()
         itemsListener = nil
     }
- */
+ 
     // データの取得
     func fetch() {
         let mailRef = db.collection("postData")
@@ -132,9 +131,9 @@ class LikedPostViewController: UIViewController, UITableViewDataSource, UITableV
     
     // セルの何番目が押されたかを見るやつ
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-      //  item = items[indexPath.row]
+        item = items[indexPath.row]
         print("item = \(item)")
-    //    documentID = allDocumentID[indexPath.row]
+        documentID = allDocumentID[indexPath.row]
         print("documentID = \(documentID)")
     }
     
@@ -235,9 +234,17 @@ class LikedPostViewController: UIViewController, UITableViewDataSource, UITableV
         
         // 行きたいボタン
         let goodButton = cell.viewWithTag(15) as! UIButton
-        // いいねボタンの色
-        goodButton.setTitle("❤", for: .normal)
-        goodButton.setTitleColor(#colorLiteral(red: 1, green: 0.1301513699, blue: 0.7420222357, alpha: 1), for: .normal)
+        if dict["like"] as! String == "0" {
+            // いいねボタンの色
+            goodButton.setTitle("♡", for: .normal)
+            goodButton.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
+        } else if dict["like"] as! String == "1" {
+            // いいねボタンの色
+            goodButton.setTitle("❤", for: .normal)
+            goodButton.setTitleColor(#colorLiteral(red: 1, green: 0.1301513699, blue: 0.7420222357, alpha: 1), for: .normal)
+        } else {
+            
+        }
         
         return cell
     }
@@ -251,6 +258,8 @@ class LikedPostViewController: UIViewController, UITableViewDataSource, UITableV
     
     
     @IBAction func likedBUtton(_ sender: UIButton) {
+       
+        
         // 選択されたボタンの座標位置を取得し
         let point = likeTableView.convert(sender.center, from: sender)
         print("point:\(point)")
@@ -262,22 +271,19 @@ class LikedPostViewController: UIViewController, UITableViewDataSource, UITableV
         item = items[indexPath.row]
         documentID = allDocumentID[indexPath.row]
         
-        let cell = likeTableView.dequeueReusableCell(withIdentifier: "LikedCell", for: indexPath)
-        let goodButton = cell.viewWithTag(15) as! UIButton
+        // 監視開始
+        startLiseningForItems()
+        
+     //   let cell = likeTableView.dequeueReusableCell(withIdentifier: "LikedCell", for: indexPath)
+       // let goodButton = cell.viewWithTag(15) as! UIButton
         
         if item["like"] as! String == "0" {
             // firebase更新
             db.collection("postData").document(documentID).updateData(["like": "1"])
-            
-            // いいねボタンの色
-            goodButton.setTitle("❤", for: .normal)
-            goodButton.setTitleColor(#colorLiteral(red: 1, green: 0.1301513699, blue: 0.7420222357, alpha: 1), for: .normal)
-            
+            self.likeTableView.reloadData()
         } else if item["like"] as! String == "1" {
             db.collection("postData").document(documentID).updateData(["like": "0"])
-            // いいねボタンの色
-            goodButton.setTitle("♡", for: .normal)
-            goodButton.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
+            self.likeTableView.reloadData()
         }
         
     }
