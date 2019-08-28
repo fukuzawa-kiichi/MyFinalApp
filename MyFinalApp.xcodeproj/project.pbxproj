@@ -26,6 +26,7 @@
 		C155F000230A81820058B65D /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C155EFFF230A81820058B65D /* Login.storyboard */; };
 		C155F002230A81B20058B65D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C155F001230A81B20058B65D /* LoginViewController.swift */; };
 		C155F004230A88400058B65D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C155F003230A88400058B65D /* GoogleService-Info.plist */; };
+		C1CB8B112316A13300D0BEC8 /* ProfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CB8B102316A13300D0BEC8 /* ProfViewController.swift */; };
 		C1CD24AC230D2C6300BD791D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CD24AB230D2C6300BD791D /* ProfileViewController.swift */; };
 		C1CD24AE230D304700BD791D /* FixProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CD24AD230D304700BD791D /* FixProfileViewController.swift */; };
 /* End PBXBuildFile section */
@@ -54,6 +55,7 @@
 		C155EFFF230A81820058B65D /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		C155F001230A81B20058B65D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C155F003230A88400058B65D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		C1CB8B102316A13300D0BEC8 /* ProfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfViewController.swift; sourceTree = "<group>"; };
 		C1CD24AB230D2C6300BD791D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C1CD24AD230D304700BD791D /* FixProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,6 +101,7 @@
 				C1CD24AD230D304700BD791D /* FixProfileViewController.swift */,
 				C1431FE6230FC759001B34E9 /* ChengeStringFunc.swift */,
 				C14AFACE2315546D005BF832 /* userProfImage.swift */,
+				C1CB8B102316A13300D0BEC8 /* ProfViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				C14AFACD23151AEE005BF832 /* LikedPostViewController.swift in Sources */,
 				C13E514C230BE8CC0001500A /* Extension+ View.swift in Sources */,
 				C13E514A230BE2240001500A /* Extension+ Scrollview.swift in Sources */,
+				C1CB8B112316A13300D0BEC8 /* ProfViewController.swift in Sources */,
 				C13E514E230BE9460001500A /* Struct.swift in Sources */,
 				C13F71AD230EA602002429CA /* NewViewController.swift in Sources */,
 				C1431FE7230FC759001B34E9 /* ChengeStringFunc.swift in Sources */,

@@ -1,8 +1,8 @@
 //
-//  ProfileViewController.swift
+//  ProfViewController.swift
 //  MyFinalApp
 //
-//  Created by VERTEX24 on 2019/08/21.
+//  Created by VERTEX24 on 2019/08/28.
 //  Copyright © 2019 VERTEX24. All rights reserved.
 //
 
@@ -10,14 +10,12 @@ import UIKit
 import FirebaseAuth
 import FirebaseFirestore
 
-class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UITableViewDelegate, UITableViewDataSource {
-    
+class ProfViewController: UIViewController, UIImagePickerControllerDelegate, UITableViewDelegate, UITableViewDataSource  {
     
     // 投稿情報を全て格納
     var items = [NSDictionary]()
     // いいね投稿のすべてを入れる箱
     var goodItem = [NSDictionary]()
-    
     // インスタンス化
     let db = Firestore.firestore()
     
@@ -27,6 +25,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var userProfImage: UIImageView!
     @IBOutlet weak var profNameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var goodShop: UILabel!
     
     
     
@@ -36,11 +35,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         tableView.delegate = self
         tableView.dataSource = self
         
-        // 角を丸くする
-        //        self.userProfImage.layer.cornerRadius = 100 * 0.5
-        //        self.userProfImage.clipsToBounds = true
-        //        userProfImage.center = CGPoint(x: 0, y: 100)
-        //        self.view.addSubview(self.userProfImage)
+        
         // ユーザーの情報をとってくる
         reload()
         // サーバーからデータを取ってくる
@@ -50,6 +45,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     override func viewWillAppear(_ animated: Bool) {
         reload()
+        fetch()
         return
     }
     
@@ -73,8 +69,25 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             self.items = tempItem
             print("self.items.count:\(self.items.count)")
             self.tableView.reloadData()
-            
-            
+        }
+        
+        let mailRefs = db.collection("postData")
+        let querys = mailRefs.whereField("like", isEqualTo: "1")
+        querys.getDocuments { (snapshots, errors) in
+            if let errors = errors {
+                print("ProfileViewControllerにて情報取得失敗", errors)
+                return
+            }
+            // 一時保管場所
+            var tempItems = [NSDictionary]()
+            // 全アイテム数回
+            for items in snapshots!.documents {
+                let dicts = items.data()
+                tempItems.append(dicts as NSDictionary)
+            }
+            self.goodItem = tempItems
+            let num = self.goodItem.count
+            self.goodShop.text = ("\(num)")
         }
     }
     
@@ -102,7 +115,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     // セルの数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // セルの数は投稿情報の数
-        return items.count 
+        return items.count
     }
     
     // セルの設定

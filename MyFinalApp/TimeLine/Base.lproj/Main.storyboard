@@ -669,7 +669,7 @@
         <!--MyProfiel-->
         <scene sceneID="cjA-9p-xeQ">
             <objects>
-                <viewController storyboardIdentifier="Profile" id="mPF-wb-xT1" customClass="ProfileViewController" customModule="MyFinalApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Profile" id="mPF-wb-xT1" customClass="ProfViewController" customModule="MyFinalApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WEW-gm-BsK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -947,9 +947,10 @@
                     <navigationItem key="navigationItem" title="MyProfiel" id="HMZ-cg-c7v"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="profNameLabel" destination="l8v-5G-G2h" id="mUd-aI-TVs"/>
-                        <outlet property="tableView" destination="0ou-WR-sPX" id="fbu-5Y-nzv"/>
-                        <outlet property="userProfImage" destination="xwD-Rz-vs5" id="fue-MY-T1M"/>
+                        <outlet property="goodShop" destination="uKe-KV-ZY8" id="z7o-Ac-0PU"/>
+                        <outlet property="profNameLabel" destination="l8v-5G-G2h" id="buP-mI-lsa"/>
+                        <outlet property="tableView" destination="0ou-WR-sPX" id="4Qt-yl-Zht"/>
+                        <outlet property="userProfImage" destination="xwD-Rz-vs5" id="7C6-yg-t2o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vdn-FJ-0UK" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -79,7 +79,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             print("allDocumentID: \(self.allDocumentID)")
             self.items = tempItem
             self.tableView.reloadData()
-        }
+           }
     }
     
     // ユーザーの情報をとってくる

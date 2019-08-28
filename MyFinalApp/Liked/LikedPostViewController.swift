@@ -48,7 +48,9 @@ class LikedPostViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        fetch()
+    }
  
     
     override func viewDidDisappear(_ animated: Bool) {
