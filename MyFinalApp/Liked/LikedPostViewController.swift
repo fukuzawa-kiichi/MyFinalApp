@@ -38,10 +38,6 @@ class LikedPostViewController: UIViewController, UITableViewDataSource, UITableV
         
         likeTableView.delegate = self
         likeTableView.dataSource = self
-        
-        
-        
-        
         refreshControl.attributedTitle = NSAttributedString(string: "引っ張って更新")
         // アクションを指定
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
@@ -53,10 +49,7 @@ class LikedPostViewController: UIViewController, UITableViewDataSource, UITableV
     
     
     
-    override func viewWillAppear(_ animated: Bool) {
-       
-        fetch()
-    }
+ 
     
     override func viewDidDisappear(_ animated: Bool) {
         // 監視終了
@@ -69,7 +62,7 @@ class LikedPostViewController: UIViewController, UITableViewDataSource, UITableV
     
     // ユーザーの情報をとってくる
     func startLiseningForItems() {
-        itemsListener = db.collection("postData").document(documentID).addSnapshotListener ({ (snapshot, error) in
+        itemsListener = db.collection("postData").addSnapshotListener ({ (snapshot, error) in
             if let error = error {
                 print("データ取得失敗: ", error)
                 return
@@ -78,8 +71,14 @@ class LikedPostViewController: UIViewController, UITableViewDataSource, UITableV
                 print("error: \(error!)")
                 return
             }
-            self.item = NSDictionary()
-            self.item = snapShot.data()! as NSDictionary
+            // 一時保管場所
+            var tempItem = [NSDictionary]()
+            for item in snapShot.documents {
+                let dict = item.data()
+                tempItem.append(dict as NSDictionary)
+            }
+            self.items = tempItem
+            self.likeTableView.reloadData()
         })
         
     }
