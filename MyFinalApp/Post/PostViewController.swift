@@ -216,6 +216,12 @@ class PostViewController: UIViewController {
     
     // 投稿をやめるボタン
     @IBAction func cancelAll(_ sender: Any) {
+        willPostImage = UIImage()
+        userProfName = ""
+        userProfImage = ""
+        userEmail = ""
+        // 画面を消してタイムラインに戻る
+        self.dismiss(animated: true)
     }
     
     // トッピングの項目を増やすボタン

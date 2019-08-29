@@ -21,7 +21,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="oR9-RS-vqu" kind="relationship" relationship="viewControllers" id="ZHQ-qZ-YqO"/>
-                        <segue destination="xSz-sA-W1e" kind="relationship" relationship="viewControllers" id="xqB-q5-LIx"/>
                         <segue destination="sNr-P7-7Ia" kind="relationship" relationship="viewControllers" id="YSd-gq-NhW"/>
                         <segue destination="xFz-3Z-EeX" kind="relationship" relationship="viewControllers" id="Hln-dn-LrI"/>
                         <segue destination="Bu5-K0-vej" kind="relationship" relationship="viewControllers" id="qDy-03-X78"/>
@@ -369,22 +368,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aHB-lE-yP1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1260" y="-2190.8450704225352"/>
-        </scene>
-        <!--Serach-->
-        <scene sceneID="tj1-IX-bSP">
-            <objects>
-                <viewController id="xSz-sA-W1e" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="jL0-av-NK4">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="QQl-VX-OUV"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" tag="1" title="Serach" id="ncC-dD-7ZE"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SAY-BX-WDr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-699" y="-1118"/>
         </scene>
         <!--New View Controller-->
         <scene sceneID="fB7-KA-P68">
