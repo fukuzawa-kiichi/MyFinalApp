@@ -28,6 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // 画面を2秒表示
+        sleep(2)
+        
         // アプリに保存されている自分の名前をuserProfNameに格納します。
         let userDefaultsName = UserDefaults.standard
         myName = userDefaultsName.object(forKey: "myName") as? String
