@@ -281,9 +281,11 @@ class LikedPostViewController: UIViewController, UITableViewDataSource, UITableV
         if item["like"] as! String == "0" {
             // firebase更新
             db.collection("postData").document(documentID).updateData(["like": "1"])
+            refresh()
             self.likeTableView.reloadData()
         } else if item["like"] as! String == "1" {
             db.collection("postData").document(documentID).updateData(["like": "0"])
+            refresh()
             self.likeTableView.reloadData()
         }
         

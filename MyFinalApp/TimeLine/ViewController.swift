@@ -17,6 +17,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     let db = Firestore.firestore()
     // refreshControlのインスタンス化
     var refreshControl = UIRefreshControl()
+    // ロード中のグレーの画面
+    private let OutView = UIView()
    
     // 投稿情報を入れる箱
     var items = [NSDictionary]()
@@ -44,6 +46,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         // tableViewに追加
         tableView.addSubview(refreshControl)
+        // OutViewの範囲と色
+        OutView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        OutView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+        // OutViewをviewにつける
+        view.addSubview(OutView)
+        OutView.isHidden = true
+        
         fetch()
         
     }
@@ -63,6 +72,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     // データの取得
     func fetch() {
+        // OutViewを表示
+        OutView.isHidden = false
         // getで全件取得
         db.collection("postData").getDocuments() {(querySnapshot, err) in
             // 一時保管場所
@@ -80,6 +91,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             self.items = tempItem
             self.tableView.reloadData()
            }
+        // OutViewを表示
+        OutView.isHidden = true
     }
     
     // ユーザーの情報をとってくる
