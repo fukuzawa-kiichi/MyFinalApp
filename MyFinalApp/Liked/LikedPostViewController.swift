@@ -15,6 +15,9 @@ class LikedPostViewController: UIViewController, UITableViewDataSource, UITableV
     let db = Firestore.firestore()
     // refreshControlのインスタンス化
     var refreshControl = UIRefreshControl()
+    // ロード中画面を触れなくする
+    private let OutView = UIView()
+    
     
     // 投稿情報を入れる箱
     var items = [NSDictionary]()
@@ -43,6 +46,12 @@ class LikedPostViewController: UIViewController, UITableViewDataSource, UITableV
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         // tableViewに追加
         likeTableView.addSubview(refreshControl)
+        // OutViewの範囲と色
+        OutView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        OutView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+        // OutViewをviewにつける
+        view.addSubview(OutView)
+        OutView.isHidden = true
         fetch()
         
     }
@@ -92,6 +101,8 @@ class LikedPostViewController: UIViewController, UITableViewDataSource, UITableV
  
     // データの取得
     func fetch() {
+        // OutViewを表示
+        OutView.isHidden = false
         let mailRef = db.collection("postData")
         let query = mailRef.whereField("like", isEqualTo: "1")
         query.getDocuments { (snapshot, error) in
@@ -112,12 +123,17 @@ class LikedPostViewController: UIViewController, UITableViewDataSource, UITableV
             print("self.items.count:\(self.items.count)")
             self.likeTableView.reloadData()
         }
+        // OutViewを表示
+        OutView.isHidden = true
     }
     
     // 更新
     @objc func refresh() {
         //初期化
         items = [NSDictionary]()
+        item = NSDictionary()
+        allDocumentID = []
+        documentID = ""
         fetch()
         likeTableView.reloadData()
         // リフレッシュを止める
@@ -282,11 +298,9 @@ class LikedPostViewController: UIViewController, UITableViewDataSource, UITableV
             // firebase更新
             db.collection("postData").document(documentID).updateData(["like": "1"])
             refresh()
-            self.likeTableView.reloadData()
         } else if item["like"] as! String == "1" {
             db.collection("postData").document(documentID).updateData(["like": "0"])
             refresh()
-            self.likeTableView.reloadData()
         }
         
     }
