@@ -30,7 +30,7 @@
             </objects>
             <point key="canvasLocation" x="-1946" y="-294"/>
         </scene>
-        <!--タイムライン-->
+        <!--ホーム-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="Main" id="BYZ-38-t0r" customClass="ViewController" customModule="MyFinalApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -128,7 +128,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="タイムライン" id="1LT-rb-HIx"/>
+                    <navigationItem key="navigationItem" title="ホーム" id="1LT-rb-HIx"/>
                     <connections>
                         <outlet property="tableView" destination="sRh-Hm-DpL" id="AB2-Rb-PFZ"/>
                         <segue destination="yQl-BU-L2P" kind="show" identifier="gotoDetail" id="KOZ-0X-901"/>
@@ -155,37 +155,29 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="HEM-Xm-u2N">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="877"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="GgH-Ta-c9X">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3i3-uc-C2d">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                                         <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3i3-uc-C2d">
-                                                                <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
-                                                                <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DhL-vd-2EU">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="width" constant="60" id="1KS-eM-di3"/>
-                                                                            <constraint firstAttribute="height" constant="60" id="wVA-YM-X8E"/>
-                                                                        </constraints>
-                                                                        <userDefinedRuntimeAttributes>
-                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                                <integer key="value" value="31"/>
-                                                                            </userDefinedRuntimeAttribute>
-                                                                        </userDefinedRuntimeAttributes>
-                                                                    </imageView>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HlS-lC-Lzd">
-                                                                        <rect key="frame" x="70" y="0.0" width="344" height="60"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                        <nil key="textColor"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
-                                                                </subviews>
-                                                            </stackView>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DhL-vd-2EU">
+                                                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="60" id="1KS-eM-di3"/>
+                                                                    <constraint firstAttribute="height" constant="60" id="wVA-YM-X8E"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                        <integer key="value" value="31"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HlS-lC-Lzd">
+                                                                <rect key="frame" x="70" y="0.0" width="344" height="60"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
                                                         </subviews>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="60" id="IWq-TP-P1T"/>
-                                                        </constraints>
                                                     </stackView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bbu-T0-TlY">
                                                         <rect key="frame" x="0.0" y="60" width="414" height="414"/>
@@ -387,7 +379,7 @@
             </objects>
             <point key="canvasLocation" x="-626" y="-273"/>
         </scene>
-        <!--LikedPost-->
+        <!--Liked Post View Controller-->
         <scene sceneID="EgD-iC-4IH">
             <objects>
                 <viewController storyboardIdentifier="LikedPost" id="xFz-3Z-EeX" customClass="LikedPostViewController" customModule="MyFinalApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -640,7 +632,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Fu2-bD-k9x"/>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="3" title="LikedPost" image="ハートのマーク" id="pWR-Ce-dge" userLabel="LikedPost"/>
+                    <tabBarItem key="tabBarItem" tag="3" title="" image="ハートのマーク" id="pWR-Ce-dge" userLabel="LikedPost"/>
                     <connections>
                         <outlet property="likeTableView" destination="odm-qW-gIz" id="gA9-vS-hTl"/>
                     </connections>
@@ -649,7 +641,7 @@
             </objects>
             <point key="canvasLocation" x="-626.08695652173913" y="699.77678571428567"/>
         </scene>
-        <!--MyProfiel-->
+        <!--プロフィール-->
         <scene sceneID="cjA-9p-xeQ">
             <objects>
                 <viewController storyboardIdentifier="Profile" id="mPF-wb-xT1" customClass="ProfViewController" customModule="MyFinalApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -927,7 +919,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UlS-7y-1TD"/>
                     </view>
-                    <navigationItem key="navigationItem" title="MyProfiel" id="HMZ-cg-c7v"/>
+                    <navigationItem key="navigationItem" title="プロフィール" id="HMZ-cg-c7v"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="goodShop" destination="uKe-KV-ZY8" id="z7o-Ac-0PU"/>
@@ -1012,11 +1004,11 @@
             </objects>
             <point key="canvasLocation" x="1388" y="1567"/>
         </scene>
-        <!--MyPage-->
+        <!--Navigation Controller-->
         <scene sceneID="52V-S1-GEM">
             <objects>
                 <navigationController storyboardIdentifier="Navigation" automaticallyAdjustsScrollViewInsets="NO" id="Bu5-K0-vej" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="4" title="MyPage" id="Pxg-uW-6aJ" customClass="userProfImage" customModule="MyFinalApp" customModuleProvider="target"/>
+                    <tabBarItem key="tabBarItem" tag="4" title="" image="人物アイコン-1" id="Pxg-uW-6aJ" customClass="userProfImage" customModule="MyFinalApp" customModuleProvider="target"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hKB-eC-hwk">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -1031,11 +1023,11 @@
             </objects>
             <point key="canvasLocation" x="-626.25" y="1567.605633802817"/>
         </scene>
-        <!--HOME-->
+        <!--Navigation Controller-->
         <scene sceneID="2M0-xu-HLu">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oR9-RS-vqu" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="HOME" image="ホームボタン" id="p9Z-e2-2aG">
+                    <tabBarItem key="tabBarItem" title="" image="ホームボタン" id="p9Z-e2-2aG">
                         <inset key="imageInsets" minX="0.0" minY="55" maxX="0.0" maxY="55"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -1056,6 +1048,7 @@
     <resources>
         <image name="ハートのマーク" width="28" height="28"/>
         <image name="ホームボタン" width="41" height="41"/>
+        <image name="人物アイコン-1" width="28" height="28"/>
         <image name="投稿ボタン" width="30" height="30"/>
     </resources>
 </document>
