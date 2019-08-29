@@ -101,8 +101,6 @@ class LikedPostViewController: UIViewController, UITableViewDataSource, UITableV
  
     // データの取得
     func fetch() {
-        // OutViewを表示
-        OutView.isHidden = false
         let mailRef = db.collection("postData")
         let query = mailRef.whereField("like", isEqualTo: "1")
         query.getDocuments { (snapshot, error) in
@@ -123,12 +121,12 @@ class LikedPostViewController: UIViewController, UITableViewDataSource, UITableV
             print("self.items.count:\(self.items.count)")
             self.likeTableView.reloadData()
         }
-        // OutViewを表示
-        OutView.isHidden = true
     }
     
     // 更新
     @objc func refresh() {
+        // OutViewを表示
+        OutView.isHidden = false
         //初期化
         items = [NSDictionary]()
         item = NSDictionary()
@@ -138,6 +136,8 @@ class LikedPostViewController: UIViewController, UITableViewDataSource, UITableV
         likeTableView.reloadData()
         // リフレッシュを止める
         refreshControl.endRefreshing()
+        // OutViewを表示
+        OutView.isHidden = true
     }
     
     // セルの数
@@ -294,11 +294,7 @@ class LikedPostViewController: UIViewController, UITableViewDataSource, UITableV
      //   let cell = likeTableView.dequeueReusableCell(withIdentifier: "LikedCell", for: indexPath)
        // let goodButton = cell.viewWithTag(15) as! UIButton
         
-        if item["like"] as! String == "0" {
-            // firebase更新
-            db.collection("postData").document(documentID).updateData(["like": "1"])
-            refresh()
-        } else if item["like"] as! String == "1" {
+        if item["like"] as! String == "1" {
             db.collection("postData").document(documentID).updateData(["like": "0"])
             refresh()
         }
